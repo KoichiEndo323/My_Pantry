@@ -1,24 +1,31 @@
-# README
+# <My Pantry>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+-
 
-Things you may want to cover:
+### サイトテーマ
+- 冷蔵庫内や戸棚などにあるの食材の賞味期限を管理する機能と、食に関するお役立ち情報（レシピ、長持ちさせる保存方法等）を投稿・閲覧できるコミュニティ機能がある複合サイト。
 
-* Ruby version
+### テーマを選んだ理由
+- 自炊をすることが多く、食材を買いだめする機会があるのですが、保存方法が適切でなかった為に腐られてしまったり賞味期限を切らしてしまうことがあり、
+- WEB上で食材状態を管理できてさらに、他の人がどのように保存しているのか知れるサービスがあれば便利だと考えこのテーマにしました。
 
-* System dependencies
+### ターゲットユーザ
+- 料理をこれから趣味にしたいが食材管理に不安な人。食に関するお役立ち情報を他の人に教えたい人。
 
-* Configuration
+### 主な利用シーン
+- 食材の賞味期限を管理したい時、食材の正しい保存方法や余った食材で何か作りたい料理を検索する時
 
-* Database creation
+## 設計書
 
-* Database initialization
 
-* How to run the test suite
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 使用素材
+- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
+- 使用しない場合は、使用素材の項目をREADMEから削除してください。
