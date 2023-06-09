@@ -7,7 +7,7 @@ class CreateFoods < ActiveRecord::Migration[6.1]
       t.datetime :start_date, null: false
       t.datetime :end_date, null: false
       t.string :memo, null: false
-      t.integer :status, null: false
+      t.integer :status, null: false, default: 0
       t.timestamps
     end
   end

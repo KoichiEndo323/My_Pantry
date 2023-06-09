@@ -1,1 +1,9 @@
-= link_to 'ゲストログイン', end_users_guest_sign_in_path, class: "nav-link", method: :post
+header.shadow-sm
+  nav.navbar.navbar-expand-lg.navbar-light
+    .container-fluid
+      .row.justify-content-center
+        = link_to root_path do
+          = image_tag 'naganocake.png', size: '80x80'
+          
+          
+      = link_to 'ゲストログイン', end_users_guest_sign_in_path, class: "nav-link", method: :post

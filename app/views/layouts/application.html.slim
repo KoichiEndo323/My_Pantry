@@ -1,13 +1,18 @@
 doctype html
 html
   head
-    title
-      | MyPantry
-    meta[name="viewport" content="width=device-width,initial-scale=1"]
+    title MyPantry
+    meta name="viewport" content="width=device-width,initial-scale=1"
     = csrf_meta_tags
     = csp_meta_tag
-    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    script src="https://kit.fontawesome.com/e142a3467e.js" crossorigin="anonymous"
+    = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
-  body
-    = 
-    = yield
+  body.d-flex.flex-column.vh-100
+    = render "layouts/header"
+    main.mb-auto
+      - flash.each do |key, value|
+        p.alert.alert-#{key}
+          = sanitize value, tags: %w(br)
+      = yield
+    = render "layouts/footer"
