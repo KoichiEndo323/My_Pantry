@@ -3,10 +3,21 @@ Rails.application.routes.draw do
   devise_for :end_users, controllers: {
   registrations: "public/registrations",sessions: 'public/sessions'
 }
+
+  #ゲストログイン用
+  devise_scope :end_user do
+    post 'end_users/guest_sign_in', to: 'end_users/sessions#guest_sign_in'
+  end
+
   scope module: :public do
-    root 'homes#top'
-    
-    
+    root to: 'homes#top'
+    get 'homes/about'
+    resources :foods, only: [:index, :create, :edit, :update, :destroy]
+    resources :storages, only: [:index, :create, :edit, :update, :destroy]
+
+    get 'end_users/mypage' => 'end_users#show', as: 'mypage'
+
+
   end
 
 
@@ -21,10 +32,7 @@ Rails.application.routes.draw do
   devise_for :admin,controllers: {
   sessions: "admin/sessions"
 }
-  #ゲストログイン用
-devise_scope :end_user do
-    post 'end_users/guest_sign_in', to: 'end_users/sessions#guest_sign_in'
-  end
+
 
 
 
