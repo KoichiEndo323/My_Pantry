@@ -1,0 +1,17 @@
+.container.mt-4
+  .d-flex
+    - @foods.each do |food|
+      .card.mx-auto.mt-4.shadow-lg
+        = link_to food_path(food.id) do
+          = image_tag food.get_food_image(50, 50), class: "card-img-top"
+        .card-body
+          .row
+            .col-10
+              p.card-title
+                = link_to food_path(food.id), class: "text-dark" do
+                  strong
+                    i.far.fa-flag
+                    span= food.name
+                    span= food.end_date
+
+    = paginate @foods

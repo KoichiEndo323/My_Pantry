@@ -62,3 +62,7 @@ gem 'slim-rails'
 gem 'devise'
 
 gem "enum_help"
+
+gem 'kaminari','~> 1.2.1'
+
+gem 'image_processing', '~> 1.2'

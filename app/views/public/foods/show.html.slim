@@ -1,0 +1,26 @@
+section.inner
+  h2.section-ttl 食材詳細
+  .flex
+    div
+      .image_field
+        = image_tag @food.get_food_image(200,200), class: "food_image"
+    table.food_info
+      thead
+        tr
+          th
+          th
+      tbody
+        tr
+          td 食材名
+          td= @food.name
+        tr
+          td 個数
+          td= @food.quantity
+        tr
+          td 購入日
+          td= @food.start_date.strftime('%Y/%m/%d')
+        tr
+          td 賞味期限
+          td= @food.end_date.strftime('%Y/%m/%d')
+    div.flex.align-center.pl5
+      = link_to "編集する", edit_food_path(@food), class: "btn btn-success"

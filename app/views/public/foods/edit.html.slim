@@ -1,0 +1,3 @@
+section.inner
+h2.section-ttl = "#{@food.name}の編集"
+= render 'form', food: @food, url: food_path(@food), submit: '更新'

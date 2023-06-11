@@ -90,13 +90,13 @@ ActiveRecord::Schema.define(version: 2023_06_09_054402) do
   end
 
   create_table "foods", force: :cascade do |t|
-    t.integer "end_user_id", null: false
+    t.integer "end_user_id"
     t.string "name", null: false
     t.string "quantity", null: false
     t.datetime "start_date", null: false
     t.datetime "end_date", null: false
-    t.string "memo", null: false
-    t.integer "status", default: 0, null: false
+    t.string "memo"
+    t.integer "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

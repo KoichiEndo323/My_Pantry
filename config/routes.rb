@@ -12,9 +12,9 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: 'homes#top'
     get 'homes/about'
-    resources :foods, only: [:index, :create, :edit, :update, :destroy]
-    resources :storages, only: [:index, :create, :edit, :update, :destroy]
-
+    resources :foods, only: [:index, :new, :create, :show, :edit, :update, :destroy]
+    resources :storages, only: [:index, :new, :create, :edit, :update, :destroy]
+    resources :articles, only: [:index, :new, :create, :show, :edit, :update, :destroy]
     get 'end_users/mypage' => 'end_users#show', as: 'mypage'
 
 
