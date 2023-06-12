@@ -1,0 +1,18 @@
+.container.mt-4
+  .d-flex
+    - @articles.each do |article|
+      .card.mb-3(style="max-width: 540px;")
+        .row.g-0
+          .col-md-4
+            = link_to article_path(article.id) do
+              = image_tag article.get_article_image(100,100), class: "card-img-top"
+          .col-md-8
+            .card-body
+              h5.card-title
+                = article.title
+              p.card-text
+                = article.body
+              p.card-contributor
+                = image_tag article.end_user.get_profile_image(40,40), class:"mt-3 rounded-circle"
+                = article.end_user.nickname
+= paginate @articles

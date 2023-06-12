@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 2023_06_09_054402) do
 
   create_table "articles", force: :cascade do |t|
     t.integer "end_user_id", null: false
-    t.integer "title", null: false
+    t.string "title", null: false
     t.text "body", null: false
     t.boolean "is_published", default: true, null: false
     t.datetime "created_at", precision: 6, null: false

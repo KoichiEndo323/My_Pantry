@@ -1,16 +1,3 @@
-h1 食材登録フォーム
-= render 'layouts/errors', obj: @food
-= form_with model: @food do |f|
-  h4 食材画像
-  = f.file_field :image, accept: "image/*"
-  h4 名前
-  = f.text_field :name
-  h4 個数
-  = f.text_field :quantity
-  h4 購入日
-  = f.date_field :start_date
-  h4 賞味期限
-  = f.date_field :end_date
-  = f.submit '登録する'
-  
-  = render 'form', food: @food, url: foods_path, submit: '登録'
+section.inner
+h2.section-ttl = "食材新規登録"
+= render 'form', food: @food, url: foods_path, submit: '登録'

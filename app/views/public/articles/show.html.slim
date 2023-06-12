@@ -1,0 +1,25 @@
+section.inner
+  h2.section-ttl 記事詳細
+  .flex
+    div
+      .image_field
+        = image_tag @article.get_article_image(200,200), class: "article_image"
+    table.article_info
+      thead
+        tr
+          th
+          th
+      tbody
+        tr
+          td = @article.title
+        tr
+          td = @article.body
+        tr
+          td 投稿した人
+          td = image_tag @article.end_user.get_profile_image(40,40), class:"mt-3 rounded-circle"
+          td = @article.end_user.nickname
+
+
+    if @article.end_user == current_end_user
+    div.flex.align-center.pl5
+      = link_to "編集する", edit_article_path(@article), class: "btn btn-success"

@@ -1,9 +1,9 @@
 .container
   .row.no-gutters
     .col-md-5.col-sm-10.mx-2.mx-sm-auto.text-center.shadow-lg.rounded.px-0.my-5
-      h5.text-dark.bg-light.py-4.mb-0 食材入力・編集フォーム
+      h5.text-dark.bg-light.py-4.mb-0 投稿入力・編集フォーム
       .form-body.p-4
-        = form_with model:food, url: url do |f|
+        = form_with model:article, url: url do |f|
           .input-group.mb-3
             .input-group-prepend
               span.input-group-image aria-hidden="true"
@@ -12,20 +12,18 @@
             .input-group-prepend
               span.input-group-text aria-hidden="true"
                 i.fas.fa-envelope
-            = f.text_field :name, autofocus: true, class: "form-control", placeholder: "名前"
+            = f.text_field :title, autofocus: true, class: "form-control", placeholder: "タイトル"
           .input-group.mb-3
             .input-group-prepend
               span.input-group-text aria-hidden="true"
                 i.fas.fa-lock
-            = f.text_field :quantity,  class: "form-control"
+            = f.text_area :body, class: "form-control"
           .input-group.mb-3
             .input-group-prepend
               span.input-group-text aria-hidden="true"
                 i.fas.fa-check-circle
-            = f.date_field :start_date, class: "form-control"
-          .input-group.mb-3
-            .input-group-prepend
-              span.input-group-text aria-hidden="true"
-                i.fas.fa-check-circle
-            = f.date_field :end_date, class: "form-control"
+            = f.label :is_published, "公開",value: true, class: "form-control"
+            = f.radio_button :is_published, "true"
+            = f.label :is_published, "非公開",value: false, class: "form-control"
+            = f.radio_button :is_published, "false"
           = f.submit submit, class: "btn btn-block btn-info mt-5"
