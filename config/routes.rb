@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   #ゲストログイン用
   devise_scope :end_user do
-    post 'end_users/guest_sign_in', to: 'end_users/sessions#guest_sign_in'
+    post 'end_users/guest_sign_in', to: 'public/sessions#guest_sign_in'
   end
 
   scope module: :public do
@@ -14,16 +14,14 @@ Rails.application.routes.draw do
     get 'homes/about'
     resources :foods, only: [:index, :new, :create, :show, :edit, :update, :destroy]
     resources :storages, only: [:index, :new, :create, :edit, :update, :destroy]
-    resources :articles, only: [:index, :new, :create, :show, :edit, :update, :destroy]
+    resources :articles, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
+      resources :post_comments, only:[:create, :destroy]
+      resource :likes, only: [:create, :destroy]
+    end
     get 'end_users/mypage' => 'end_users#show', as: 'mypage'
 
 
   end
-
-
-
-
-
 
 
 

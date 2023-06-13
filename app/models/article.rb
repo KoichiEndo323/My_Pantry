@@ -14,7 +14,9 @@ class Article < ApplicationRecord
   scope :published, -> {where(is_published: true)}
   scope :unpublished, -> {where(is_published: false)}
 
-
+  def liked_by?(end_user)
+    likes.where(end_user_id: end_user.id).exists?
+  end
 
   def get_article_image(width, height)
     unless image.attached?

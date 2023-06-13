@@ -34,7 +34,7 @@ class DeviseCreateEndUsers < ActiveRecord::Migration[6.1]
 
       t.string :nickname, null: false
       t.string :address
-      t.boolean :is_deleted
+      t.boolean :is_deleted, default: false
       t.timestamps null: false
     end
 

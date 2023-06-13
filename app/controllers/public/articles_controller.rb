@@ -2,7 +2,8 @@ class Public::ArticlesController < ApplicationController
 
   def index
     @articles = Article.published.page(params[:page]).per(10)
-    
+    @article = Article.new
+
   end
 
   def new
@@ -21,6 +22,7 @@ class Public::ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+    @post_comment = PostComment.new
   end
 
   def edit
@@ -30,7 +32,7 @@ class Public::ArticlesController < ApplicationController
   def update
     @article = Article.find(params[:id])
     if @article.update(article_params)
-      redirect_to articles_path, notice: '記事内容が変更されました。'
+      redirect_to article_path, notice: '記事内容が変更されました。'
     else
       render :edit
     end
@@ -38,7 +40,7 @@ class Public::ArticlesController < ApplicationController
 
   def destroy
     @article = Article.find(params[:id])
-    @article.destory
+    @article.destroy
     redirect_to articles_path, notice: '投稿記事が削除されました。'
   end
 

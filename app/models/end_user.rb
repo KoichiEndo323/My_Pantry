@@ -19,9 +19,17 @@ class EndUser < ApplicationRecord
     profile_image.variant(resize_to_limit: [weight, height]).processed
   end
 
+  #ゲストログイン機能
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |end_user|
     end_user.password = SecureRandom.urlsafe_base64
+    end_user.nickname = 'ゲストさん'
     end
   end
+
+  #ログイン時に退会済みのユーザーが同じアカウントでログイン出来ないようにする
+  def active_for_authentication?
+    super && (is_deleted == false)
+  end
+
 end

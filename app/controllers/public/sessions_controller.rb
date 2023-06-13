@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 class Public::SessionsController < Devise::SessionsController
-  # before_action :configure_sign_in_params, only: [:create]
+  before_action :configure_sign_in_params, if: :devise_controller?
+  before_action :reject_end_user, only: [:create]
+
 
   def guest_sign_in
     end_user = EndUser.guest
@@ -17,26 +19,21 @@ class Public::SessionsController < Devise::SessionsController
     root_path
   end
 
+  protected
 
-  # GET /resource/sign_in
-  # def new
-  #   super
-  # end
-
-  # POST /resource/sign_in
-  # def create
-  #   super
-  # end
-
-  # DELETE /resource/sign_out
-  # def destroy
-  #   super
-  # end
-
-  # protected
-
-  # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_in_params
     devise_parameter_sanitizer.permit(:sign_in, keys: [:nickname])
   end
+
+    def reject_end_user
+      @end_user = EndUser.find_by(email: params[:end_user][:email])                               #入力されたemailからアカウントを1件取得
+      return if !@end_user                                                                      #アカウントを取得できなかった場合、このメソッドを終了する
+        if @end_user.valid_password?(params[:end_user][:password]) && @end_user.is_deleted == true  #取得したアカウントのパスワードと入力されたパスワードが一致しているかつ(&&)、is_deletedがtrueだった場合
+          flash[:notice] = "退会済みです。再度ご登録をしてご利用ください"                           #trueだった場合、サインアップ画面に遷移する処理を実行する
+          redirect_to new_end_user_registration_path
+        else
+          flash[:notice] = "項目を入力してください"
+        end                                                                                         #falseだった場合、createアクションを実行させる
+    end
+
 end
