@@ -19,8 +19,9 @@ Rails.application.routes.draw do
       resource :likes, only: [:create, :destroy]
     end
     get 'end_users/mypage' => 'end_users#show', as: 'mypage'
-
-
+    resources :menus, only: [:index, :new, :create, :show, :edit, :update, :destroy]
+    resources :notifications, only: [:index, :create, :show, :destroy]
+    
   end
 
 

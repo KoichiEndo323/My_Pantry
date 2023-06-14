@@ -26,4 +26,20 @@ class Article < ApplicationRecord
     image.variant(resize_to_limit: [width, height], gravity: "center", crop: "125x125+0+0").processed
   end
 
+  def save_tag(sent_tags)
+    current_tags = self.article_tags.plunk(:name) unless self.article_tags.nil?
+    old_tags = current_tags - sent_tags
+    new_tags = sent_tags - current_tags
+
+
+    old_tags.each do |old|
+      self.article_tags.delete.ArticleTag.find_by(name: old)
+    end
+
+    new_tags.each do |new|
+      new_article_tag_relation = article.find_or_create_by(name: new)
+      self.article_tags << new_article_tag_relation
+    end
+  end
+  
 end

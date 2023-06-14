@@ -13,7 +13,9 @@ class Public::ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     @article.end_user_id = current_end_user.id
+    tag_list = params[:article][:name].split(',') #1番目の引数に指定したパターンに従って文字列を分割し、分割された各部分文字列を要素とする配列を取得
     if @article.save
+      @article.save_tag(tag_list)
       redirect_to articles_path, notice: '記事が投稿されました。'
     else
       render :new
@@ -48,6 +50,6 @@ class Public::ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:image, :title, :body, :is_published)
+    params.require(:article).permit(:image, :title, :body, :is_published, article_tags_ids: [])
   end
 end

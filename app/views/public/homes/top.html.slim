@@ -1,1 +1,5 @@
 h1 トップページ
+- if end_user_signed_in?
+  = render "public/foods/index", foods: @foods
+
+

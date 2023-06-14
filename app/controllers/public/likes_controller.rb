@@ -4,6 +4,7 @@ class Public::LikesController < ApplicationController
     @article = Article.find(params[:article_id])
     @like = current_end_user.likes.new(article_id: @article.id)
     @like.save
+    render 'replace_btn'
   end
 
   def destroy

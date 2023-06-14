@@ -1,6 +1,6 @@
 header.shadow-sm
   nav.navbar.navbar-expand-lg.navbar-light
-    .container-fluid
+    .container
       .row.justify-content-center
         = link_to root_path do
           = image_tag 'naganocake.png', size: '80x80'
@@ -23,3 +23,7 @@ header.shadow-sm
               = link_to "記事投稿", new_article_path, class: 'btn btn-secondary'
             li.nav-item
               = link_to "記事一覧", articles_path, class: 'btn btn-secondary'
+    - if end_user_signed_in?
+      = link_to mypage_path do
+        /= image_tag article.end_user.get_profile_image(40,40), class:"mt-3 rounded-circle"
+        = current_end_user.nickname

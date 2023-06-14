@@ -1,7 +1,7 @@
 class Public::HomesController < ApplicationController
 
   def top
-    @foods = Food.all
+    @foods = Food.page(params[:page])
   end
 
   def about
