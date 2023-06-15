@@ -12,6 +12,9 @@ h3 記事詳細
       = @article.end_user.nickname
       div class="likes-#{@article.id}"
         = render "public/likes/btn", article: @article
+      - @article.article_tags.each do |tag|
+        = tag.name
+        = "(#{tag.articles.count})"
 if @article.end_user == current_end_user
   div.flex.align-center.pl5
     = link_to "編集する", edit_article_path(@article), class: "btn btn-success"

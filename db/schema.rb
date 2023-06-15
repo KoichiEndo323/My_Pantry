@@ -63,7 +63,6 @@ ActiveRecord::Schema.define(version: 2023_06_14_134239) do
   end
 
   create_table "article_tags", force: :cascade do |t|
-    t.integer "article", null: false
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

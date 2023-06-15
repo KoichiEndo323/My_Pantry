@@ -1,5 +1,4 @@
 .container
-  .d-flex
     - @articles.each do |article|
       .card.mb-3(style="max-width: 540px;")
         .row.g-0
@@ -19,4 +18,6 @@
                 div class="likes-#{article.id}"
                   = render "public/likes/btn", article: article
                 = render "public/post_comments/counter", article: article
+                = article.article_tags.map(&:name).join(', ')
+
 = paginate @articles

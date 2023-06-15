@@ -23,23 +23,41 @@ class Article < ApplicationRecord
       file_path = Rails.root.join('app/assets/images/no_image.jpg')
       image.attach(io: File.open(file_path), filename: 'no_image.jpg', content_type: 'image/jpg')
     end
-    image.variant(resize_to_limit: [width, height], gravity: "center", crop: "125x125+0+0").processed
+      image.variant(resize_to_limit: [width, height]).processed
   end
 
-  def save_tag(sent_tags)
-    current_tags = self.article_tags.plunk(:name) unless self.article_tags.nil?
-    old_tags = current_tags - sent_tags
-    new_tags = sent_tags - current_tags
 
 
-    old_tags.each do |old|
-      self.article_tags.delete.ArticleTag.find_by(name: old)
-    end
-
-    new_tags.each do |new|
-      new_article_tag_relation = article.find_or_create_by(name: new)
-      self.article_tags << new_article_tag_relation
+  def save_tag(article_tags)
+    article_tags.each do |new_tags|
+      self.article_tags.find_or_create_by(name: new_tags)
     end
   end
-  
+
+  def update_tags(latest_article_tags)
+    if self.article_tags.empty?
+      latest_article_tags.each do |latest_tag|
+        self.article_tags.find_or_create_by(name: latest_tag)
+      end
+    elsif latest_article_tags.empty?
+      self.article_tags.each do |tag|
+        self.article_tags.delete(tag)
+      end
+    else
+      current_article_tags = self.article_tags.pluck(:name)
+
+      old_article_tags = current_article_tags - latest_article_tags
+
+      new_article_tags = latest_article_tags - current_article_tags
+
+      old_article_tags.each do |old_tag|
+        tag = self.article_tags.find_by(name: old_tag)
+        self.article_tags.delete(tag) if tag.present?
+      end
+
+      new_article_tags.each do |new_tag|
+        self.article_tags.find_or_create_by(name: new_tag)
+      end
+    end
+  end
 end

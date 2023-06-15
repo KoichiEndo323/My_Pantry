@@ -52,6 +52,7 @@ group :test do
   gem 'selenium-webdriver', '>= 4.0.0.rc1'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+  gem 'pry-rails'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -66,3 +67,5 @@ gem "enum_help"
 gem 'kaminari','~> 1.2.1'
 
 gem 'image_processing', '~> 1.2'
+
+gem 'rails-i18n'
