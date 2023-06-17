@@ -1,51 +1,41 @@
 ja:
   enums:
-    item:
-      sale_status:
-        on_sale: "販売中"
-        sold: "販売停止中"
-    order:
-      pay_method:
-        credit_card: "クレジットカード"
-        transfer: "銀行振込"
+    food:
       status:
-        payment_waiting: "入金待ち"
-        payment_confirmation: "入金確認"
-        in_production: "製作中"
-        preparing_delivery: "発送準備中"
-        delivered: "発送済み"
-    order_detail:
-      making_status:
-        production_not_possible: "製作不可"
-        production_pending: "製作待ち"
-        in_production: "製作中"
-        production_complete: "製作完了"
+        within_the_expiration_date: "賞味期限内"
+        expiration_date_expired: "賞味期限切れ"
   activerecord:
     models:
-      customer: "会員"
-      deli_addresses: "配送先"
-      orders: "注文"
-      cart_items: "カートアイテム"
+      end_user: "会員"
+      food: "食材"
+      article: "記事"
+      article_tag: "記事タグ"
+      like: "いいね"
+      post_comment: "コメント"
+      notification: "通知"
+      menu: "献立"
+      storage: "保管場所"
+      admin: "管理者"
     attributes:
-      customer:
+      end_users:
         email: "メールアドレス"
-        last_name: "名字"
-        first_name: "名前"
-        last_kana: "名字(カナ)"
-        first_kana: "名前(カナ)"
-        postcode: "郵便番号"
-        address: "住所"
-        phone_number: "電話番号"
-      deli_addresses:
-        postcode: "郵便番号"
-        name: "宛名"
-        address: "住所"
-      orders:
-        address: "住所"
-        postcode: "郵便番号"
-        name: "宛名"
-      cart_items:
-        quantity: "数量"
+        nicn_name: "ニックネーム"
+        password: "パスワード"
+      foods:
+        name: "食材名"
+        quantity: "個数"
+        start_date: "購入日"
+        end_date: "賞味期限日"
+        memo: "メモ"
+        status: "状態"
+      articles:
+        title: "タイトル"
+        body: "本文"
+        is_published: "公開設定"
+      storages:
+        name: "保存場所名"
+      notification:
+        is_checked: "チェック"
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

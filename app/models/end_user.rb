@@ -23,7 +23,7 @@ class EndUser < ApplicationRecord
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |end_user|
     end_user.password = SecureRandom.urlsafe_base64
-    end_user.nickname = 'ゲストさん'
+    end_user.nickname = 'ゲストユーザー'
     end
   end
 

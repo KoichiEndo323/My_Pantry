@@ -69,3 +69,5 @@ gem 'kaminari','~> 1.2.1'
 gem 'image_processing', '~> 1.2'
 
 gem 'rails-i18n'
+
+gem 'whenever', require: false
