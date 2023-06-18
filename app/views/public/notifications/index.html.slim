@@ -1,0 +1,6 @@
+.container
+  .row
+    .col-md-12
+      - Notification.where(is_checked: false).each do |notification|
+        .alert.alert-info
+          = notification.food

@@ -1,17 +1,19 @@
 class Food < ApplicationRecord
 
   has_many :notifications, dependent: :destroy
-  belongs_to :storage, optional: true
-  belongs_to :end_user, optional: true
+  belongs_to :storage
+  belongs_to :end_user
   #optional: trueは関連するオブジェクトが存在しなくても、関連元のオブジェクトを保存することができる
 
   has_one_attached :image
 
+  enum status: { within_the_expiration_date: 0, expiration_date_expired: 1 }
+
   with_options presence: true do
-  validates :image
-  validates :name
-  validates :start_date
-  validates :end_date
+    validates :image
+    validates :name
+    validates :start_date
+    validates :end_date
   end
 
   def get_food_image(width, height)

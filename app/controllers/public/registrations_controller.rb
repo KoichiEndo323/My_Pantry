@@ -12,14 +12,14 @@ class Public::RegistrationsController < Devise::RegistrationsController
   end
 
   # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+  def new
+   super
+  end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+   super
+  end
 
   # GET /resource/edit
   # def edit
@@ -58,9 +58,6 @@ class Public::RegistrationsController < Devise::RegistrationsController
   # end
 
   # The path used after sign up.
-  def after_sign_up_path_for(resource)
-     root_path
-  end
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)
@@ -73,7 +70,9 @@ class Public::RegistrationsController < Devise::RegistrationsController
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname])
   end
 
-
+  def after_sign_up_path_for(resource)
+     root_path
+  end
 
 
 end

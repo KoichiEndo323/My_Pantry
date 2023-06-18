@@ -19,6 +19,10 @@ header.shadow-sm
               = link_to "記事投稿", new_article_path, class: 'btn btn-secondary'
             li.nav-item
               = link_to "記事一覧", articles_path, class: 'btn btn-secondary'
+            li.nav-item
+              = link_to "通知一覧", notifications_path , class: 'btn btn-secondary'
+            li.nav-item
+              = link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'btn btn-secondary'
           - elsif admin_signed_in?
             li.nav-item
               = link_to "会員一覧", admin_end_users_path, class: 'btn btn-secondary'
@@ -38,5 +42,5 @@ header.shadow-sm
 
     - if end_user_signed_in?
       = link_to mypage_path do
-        /= image_tag article.end_user.get_profile_image(40,40), class:"mt-3 rounded-circle"
+        = image_tag current_end_user.get_profile_image(40,40), class:"mt-3 rounded-circle"
         = current_end_user.nickname

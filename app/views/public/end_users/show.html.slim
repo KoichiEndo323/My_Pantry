@@ -10,4 +10,17 @@
         | 投稿した記事
         - @articles.each do |article|
           = link_to article.title, article_path(article)
-      h5.card
+
+
+
+
+
+= link_to "編集", edit_end_user_path, class: "btn btn-success ms-3"
+= link_to "退会", end_users_check_path, class: "btn btn-danger ms-3"
+
+
+
+
+
+
+

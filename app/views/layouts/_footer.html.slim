@@ -1,0 +1,10 @@
+.div.p-3
+  - if current_end_user.try(:admin?)
+    = link_to '管理者ログイン', rails_admin_path
+  .text-center.mt-3
+    .mb-2
+      i.fa-brands.fa-twitter
+      i.fa-brands.fa-line
+      i.fa-brands.fa-instagram
+    small
+      | &copy; My_Pantry

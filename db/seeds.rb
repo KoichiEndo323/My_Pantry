@@ -6,10 +6,24 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+# 管理者データ
+Admin.create!(
+  nickname: "管理者",
+  email: "admin@admin.com",
+  password: "adminpass"
+)
 
+# エンドユーザーデータ
+EndUser.create!(
+  nickname: "いっち",
+  email: "sample@sample.com",
+  password: "123456"
+)
+
+# 投稿記事タグデータ
 ArticleTag.create([
   { name: 'レシピ' },
   { name: '保存方法' },
-  { name: 'アレンジ' },
+  { name: 'アレンジ料理' },
   { name: '雑学' }
 ])

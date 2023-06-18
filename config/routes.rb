@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   # 顧客用
   devise_for :end_users, controllers: {
   registrations: "public/registrations",sessions: 'public/sessions'
@@ -12,28 +13,26 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: 'homes#top'
     get 'homes/about'
-    resources :foods, only: [:index, :new, :create, :show, :edit, :update, :destroy]
-    resources :storages, only: [:index, :new, :create, :edit, :update, :destroy]
-    resources :articles, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
+    resources :foods
+    resources :storages
+    resources :articles do
       resources :post_comments, only:[:create, :destroy]
       resource :likes, only: [:create, :destroy]
     end
+
+    resources :end_users, only: [:show, :edit, :update]
     get 'end_users/mypage' => 'end_users#show', as: 'mypage'
-    resources :menus, only: [:index, :new, :create, :show, :edit, :update, :destroy]
-    resources :notifications, only: [:index, :create, :show, :destroy]
-    
+    get 'end_users/check' => 'end_users#check'
+    patch  'end_users/withdraw' => 'end_users#withdraw'
+
+    resources :menus
+    resources :notifications, only: [:index, :destroy]
+    delete 'notifications/destroy_all' => 'notifications#destroy_all', as: 'destroy_all_notifications'
   end
 
-
-
-
   # 管理者用
-  devise_for :admin,controllers: {
-  sessions: "admin/sessions"
-}
-
-
-
+  devise_for :admin
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

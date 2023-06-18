@@ -71,3 +71,7 @@ gem 'image_processing', '~> 1.2'
 gem 'rails-i18n'
 
 gem 'whenever', require: false
+
+gem 'rails_admin'
+
+gem 'cancancan'

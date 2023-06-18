@@ -22,7 +22,7 @@
             .input-group-prepend
               span.input-group-text aria-hidden="true"
                 i.fas.fa-tags
-            = f.text_field :name,value: @tag_list, class: "form-control"
+            = f.text_field :name, class: "form-control"
             .input-group-prepend
               = f.label"タグ(,で区切ると複数タグ登録できます)"
               = f.collection_check_boxes :article_tag_ids, ArticleTag.all, :id, :name do |tag|

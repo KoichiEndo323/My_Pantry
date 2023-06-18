@@ -7,8 +7,18 @@ class Article < ApplicationRecord
   has_many :article_tags, through: :article_tag_relations, dependent: :destroy
   belongs_to :end_user
 
-
   has_one_attached :image
+  
+  with_options presence: true do
+    validates :image
+    validates :title
+    validates :body
+    validates :article_tags
+    validates :is_checkd
+  end
+  
+  
+  
 
   # 公開・非公開機能
   scope :published, -> {where(is_published: true)}

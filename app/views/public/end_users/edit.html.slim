@@ -1,0 +1,21 @@
+.container
+  .row.no-gutters
+    .col-md-8.col-sm-10.mx-2.mx-sm-auto.text-center.shadow-lg.rounded.px-0.my-5
+      h5.text-dark.bg-light.py-4.mb-0 会員情報編集フォーム
+      .form-body.p-4
+        = form_with model:@end_user, url: end_user_path do |f|
+          .input-group.mb-3
+            .input-group-prepend
+              span.input-group-image aria-hidden="true"
+            = f.file_field :profile_image, accept: "image/*", autofocus: true, class: "form-control"
+          .input-group.mb-3
+            .input-group-prepend
+              span.input-group-text aria-hidden="true"
+                i.fas.fa-signature
+            = f.text_field :nickname, autofocus: true, class: "form-control", placeholder: "名前"
+          .input-group.mb-3
+            .input-group-prepend
+              span.input-group-text aria-hidden="true"
+                i.fas.fa-envelope
+            = f.text_field :email,autofocus: true, class: "form-control", placeholder: "メールアドレス"
+          = f.submit "更新する", class: "btn btn-block btn-info mt-5"

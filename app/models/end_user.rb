@@ -14,7 +14,7 @@ class EndUser < ApplicationRecord
   def get_profile_image(weight, height)
     unless profile_image.attached?
       file_path = Rails.root.join('app/assets/images/user_1.png')
-      profile_image.attach(io: File.open(file_path), filename: 'user_1.png', content_type: 'image/png')
+      profile_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/*')
     end
     profile_image.variant(resize_to_limit: [weight, height]).processed
   end
@@ -25,6 +25,10 @@ class EndUser < ApplicationRecord
     end_user.password = SecureRandom.urlsafe_base64
     end_user.nickname = 'ゲストユーザー'
     end
+  end
+
+  def guest?
+    email == 'guest@example.com'
   end
 
   #ログイン時に退会済みのユーザーが同じアカウントでログイン出来ないようにする

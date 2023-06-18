@@ -19,7 +19,7 @@ ja:
     attributes:
       end_users:
         email: "メールアドレス"
-        nicn_name: "ニックネーム"
+        nick_name: "ニックネーム"
         password: "パスワード"
       foods:
         name: "食材名"
