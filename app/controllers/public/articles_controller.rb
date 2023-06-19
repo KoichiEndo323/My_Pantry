@@ -1,9 +1,13 @@
 class Public::ArticlesController < ApplicationController
 
   def index
-    @articles = Article.published.page(params[:page]).per(10)
-    @article = Article.new
-    @tag_list = ArticleTag.all
+    if @articles = params[:keyword].present?
+       ArticleTag.find(params[:keyword]).published.aticles
+    else
+       Article.published.page(params[:page]).per(10)
+       @tag_list = ArticleTag.all
+       @keyword = params[:keyword]
+    end
   end
 
   def new

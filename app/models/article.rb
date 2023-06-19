@@ -8,17 +8,17 @@ class Article < ApplicationRecord
   belongs_to :end_user
 
   has_one_attached :image
-  
+
   with_options presence: true do
     validates :image
     validates :title
     validates :body
     validates :article_tags
-    validates :is_checkd
+    validates :is_published
   end
-  
-  
-  
+
+
+
 
   # 公開・非公開機能
   scope :published, -> {where(is_published: true)}

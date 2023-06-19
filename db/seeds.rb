@@ -27,3 +27,11 @@ ArticleTag.create([
   { name: 'アレンジ料理' },
   { name: '雑学' }
 ])
+
+# 保存場所データ
+Storage.create([
+  { name: '冷蔵庫' },
+  { name: '冷凍庫' },
+  { name: '常温品' },
+  { name: '備蓄用' }
+])

@@ -1,8 +1,8 @@
 class Food < ApplicationRecord
 
   has_many :notifications, dependent: :destroy
-  belongs_to :storage
-  belongs_to :end_user
+  belongs_to :storage, optional: true
+  belongs_to :end_user, optional: true
   #optional: trueは関連するオブジェクトが存在しなくても、関連元のオブジェクトを保存することができる
 
   has_one_attached :image
@@ -21,7 +21,7 @@ class Food < ApplicationRecord
       file_path = Rails.root.join('app/assets/images/no_image.jpg')
       image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'no_image/jpeg')
     end
-    image.variant(resize_to_limit: [width, height], gravity: "center", crop: "125x125+0+0").processed
+    image.variant(resize_to_limit: [width, height]).processed
   end
 
 

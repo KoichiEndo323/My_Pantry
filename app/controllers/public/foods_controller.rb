@@ -13,6 +13,7 @@ class Public::FoodsController < ApplicationController
 
   def create
     @food = Food.new(food_params)
+    @food.end_user_id = current_end_user.id
     if @food.save
       redirect_to foods_path, notice: '食材が登録されました。'
     else

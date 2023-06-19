@@ -95,13 +95,13 @@ ActiveRecord::Schema.define(version: 2023_06_18_005050) do
   end
 
   create_table "foods", force: :cascade do |t|
-    t.integer "end_user_id"
+    t.integer "end_user_id", null: false
     t.string "name", null: false
     t.string "quantity", null: false
     t.datetime "start_date", null: false
     t.datetime "end_date", null: false
     t.string "memo"
-    t.integer "status"
+    t.integer "status", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -124,7 +124,7 @@ ActiveRecord::Schema.define(version: 2023_06_18_005050) do
   create_table "notifications", force: :cascade do |t|
     t.integer "food_id", null: false
     t.integer "end_user_id", null: false
-    t.boolean "is_checked", null: false
+    t.boolean "is_checked", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -138,7 +138,7 @@ ActiveRecord::Schema.define(version: 2023_06_18_005050) do
   end
 
   create_table "storages", force: :cascade do |t|
-    t.integer "food_id", null: false
+    t.integer "food_id"
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

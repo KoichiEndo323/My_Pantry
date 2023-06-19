@@ -1,3 +1,4 @@
 section.inner
 h2.section-ttl = "食材新規登録"
+= render "layouts/errors", resource: @food
 = render 'form', food: @food, url: foods_path, submit: '登録'

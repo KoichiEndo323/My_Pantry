@@ -1,0 +1,59 @@
+<!-- toggle section -->
+<input type= "checkbox" id="check">
+<label for="check">
+  <i class= "fas fa-bars" id="hamburgerBtn"></i>
+  <i class= "fas fa-times" id="cancel"></i>
+</label>
+<!-- sideber section -->
+<div class="sidebar">
+  <% if end_user_signed_in? %>
+  <header>
+    <%= link_to mypage_path do %>
+      <%= image_tag current_end_user.get_profile_image(40, 40), class: "mt-3 rounded-circle" %>
+      <%= current_end_user.nickname %>
+    <% end %>
+  </header>
+  <ul>
+    <li><%= link_to new_food_path do %>
+      <i class="fas fa-folder-plus"></i>食材登録
+    <% end %></li>
+    <li><%= link_to foods_path do %>
+      <i class="fas fa-carrot"></i>食材一覧
+    <% end %></li>
+    <li><%= link_to new_article_path do %>
+      <i class="fas fa-folder-plus"></i>記事投稿
+    <% end %></li>
+    <li><%= link_to articles_path do %>
+      <i class="far fa-newspaper"></i>記事一覧
+    <% end %></li>
+    <li><%= link_to notifications_path do %>
+      <i class="fa-solid fa-bell"></i>通知一覧
+    <% end %></li>
+    <li><%= link_to destroy_admin_session_path, method: :delete do %>
+      <i class="fas fa-sign-out-alt"></i>ログアウト
+    <% end %></li>
+   <% elsif admin_signed_in? %>
+   <ul>
+    <li><%= link_to admin_end_users_path do %>
+      <i class="fas fa-users"></i>会員一覧
+    <% end %></li>
+    <li><%= link_to articles_path do %>
+      <i class="fas fa-folder-open"></i>記事一覧
+    <% end %></li>
+    <li><%= link_to destroy_admin_session_path, method: :delete do %>
+      <i class="fas fa-sign-out-alt"></i>ログアウト
+    <% end %></li>
+  </ul>
+  <% else %>
+  <ul>
+    <li><%= link_to homes_about_path do %>
+      <i class="fas fa-seedling"></i>使い方
+    <% end %></li>
+    <li><%= link_to new_end_user_registration_path do %>
+      <i class="fas fa-user-plus"></i>新規登録
+    <% end %></li>
+    <li><%= link_to new_end_user_session_path do %>
+      <i class="fas fa-sign-in-alt"></i>ログイン
+    <% end %></li>
+<% end %>
+</div>
