@@ -1,0 +1,3 @@
+- flash.each do |key, value|
+  p.alert.alert-#{key}
+    = sanitize value, tags: %w(br)

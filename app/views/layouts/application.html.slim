@@ -12,8 +12,5 @@ html
     = render "layouts/header"
     = render "layouts/sidebar"
     main.mb-auto
-      - flash.each do |key, value|
-        p.alert.alert-#{key}
-          = sanitize value, tags: %w(br)
       = yield
       = render "layouts/footer"

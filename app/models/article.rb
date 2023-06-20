@@ -13,12 +13,9 @@ class Article < ApplicationRecord
     validates :image
     validates :title
     validates :body
-    validates :article_tags
+    #validates :article_tag
     validates :is_published
   end
-
-
-
 
   # 公開・非公開機能
   scope :published, -> {where(is_published: true)}

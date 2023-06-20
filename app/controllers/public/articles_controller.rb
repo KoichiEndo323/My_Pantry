@@ -1,13 +1,14 @@
 class Public::ArticlesController < ApplicationController
 
   def index
-    if @articles = params[:keyword].present?
-       ArticleTag.find(params[:keyword]).published.aticles
+    if params[:keyword].present?
+      flash.now[:notice] = "#{params[:keyword]}タグの検索結果"
+      @articles = ArticleTag.find(params[:keyword]).articles.published.page(params[:page]).per(10)
     else
-       Article.published.page(params[:page]).per(10)
-       @tag_list = ArticleTag.all
-       @keyword = params[:keyword]
+      @articles = Article.published.page(params[:page]).per(10)
     end
+    @tag_list = ArticleTag.all
+    @keyword = params[:keyword]
   end
 
   def new

@@ -3,39 +3,40 @@
     .col-md-8.col-sm-10.mx-2.mx-sm-auto.text-center.shadow-lg.rounded.px-0.my-5
       h5.text-dark.bg-light.py-4.mb-0 投稿入力・編集フォーム
       .form-body.p-4
-        = form_with model:article, url: url do |f|
+        = form_with model: article, url: url do |f|
           .input-group.mb-3
             .input-group-prepend
-              span.input-group-image aria-hidden="true"
+              span.input-group-image
             = f.file_field :image, accept: "image/*", autofocus: true, class: "form-control"
           .input-group.mb-3
             .input-group-prepend
-              span.input-group-text aria-hidden="true"
+              span.input-group-text
                 i.fas.fa-lightbulb
             = f.text_field :title, autofocus: true, class: "form-control", placeholder: "タイトル"
           .input-group.mb-3
             .input-group-prepend
-              span.input-group-text aria-hidden="true"
+              span.input-group-text
                 i.fas.fa-pen-fancy
-            = f.text_area :body, autofocus: true, class: "form-control" , placeholder: "本文"
+            = f.text_area :body, autofocus: true, class: "form-control", placeholder: "本文"
           .input-group.mb-3
             .input-group-prepend
-              span.input-group-text aria-hidden="true"
+              span.input-group-text
                 i.fas.fa-tags
             = f.text_field :name, class: "form-control"
             .input-group-prepend
-              = f.label"タグ(,で区切ると複数タグ登録できます)"
+              = f.label "タグ(,で区切ると複数タグ登録できます)"
               = f.collection_check_boxes :article_tag_ids, ArticleTag.all, :id, :name do |tag|
                 .form-check
+                  = tag.check_box class: 'form-check-input'
                   = tag.label class: 'form-check-label' do
-                    = tag.check_box class: 'form-check-input'
                     = tag.text
           .input-group.mb-3
             .input-group-prepend
-              span.input-group-text aria-hidden="true"
+              span.input-group-text
                 i.fas.fa-user-secret
-            = f.label :is_published, "公開",value: true, class: "form-control"
+            = f.label :is_published, "公開", value: true, class: "form-control"
             = f.radio_button :is_published, "true"
-            = f.label :is_published, "非公開",value: false, class: "form-control"
+            = f.label :is_published, "非公開", value: false, class: "form-control"
             = f.radio_button :is_published, "false"
           = f.submit submit, class: "btn btn-block btn-info mt-5"
+

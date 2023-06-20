@@ -75,3 +75,5 @@ gem 'whenever', require: false
 gem 'rails_admin'
 
 gem 'cancancan'
+
+gem 'ransack'
