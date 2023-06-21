@@ -34,10 +34,11 @@ class Article < ApplicationRecord
   end
 
 
-
-  def save_tag(article_tags)
-    article_tags.each do |new_tags|
-      self.article_tags.find_or_create_by(name: new_tags)
+  def save_tag(article_tag_names)
+    article_tag_names.flatten.compact_blank.each do |new_tags|
+      tag_id = ArticleTag.find_or_create_by(name: new_tags)
+      relation = ArticleTagRelation.new(article_id: self.id, article_tag_id: tag_id)
+      relation.save!
     end
   end
 

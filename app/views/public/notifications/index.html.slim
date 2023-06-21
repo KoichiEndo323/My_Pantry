@@ -1,11 +1,9 @@
 .container
   h2 通知一覧
-    .row
-      .col-md-12
-         - if @notifications.present?
+  .row
+    .col-md-12
+      - if @notifications.present?
         - @notifications.each do |notification|
           .alert.alert-info
-            | #{notification.food.name} の賞味期限は #{notification.food.end_date} までです！
-
-
+            | #{notification.food.name} の賞味期限は #{notification.food.end_date.to_s(:short)} までです！
 

@@ -11,21 +11,21 @@
           .input-group.mb-3
             .input-group-prepend
               span.input-group-text aria-hidden="true"
-                i.fas.fa-envelope
-            = f.text_field :name, autofocus: true, class: "form-control", placeholder: "名前"
+                .p 名前
+            = f.text_field :name, autofocus: true, class: "form-control"
           .input-group.mb-3
             .input-group-prepend
               span.input-group-text aria-hidden="true"
-                i.fas.fa-lock
+                .p 個数
             = f.text_field :quantity,  class: "form-control"
           .input-group.mb-3
             .input-group-prepend
               span.input-group-text aria-hidden="true"
-                i.fas.fa-check-circle
+                .p 購入日
             = f.date_field :start_date, class: "form-control"
           .input-group.mb-3
             .input-group-prepend
               span.input-group-text aria-hidden="true"
-                i.fas.fa-check-circle
+                .p 賞味期限
             = f.date_field :end_date, class: "form-control"
           = f.submit submit, class: "btn btn-block btn-info mt-5"

@@ -18,5 +18,5 @@
                 = render "public/likes/btn", article: article
               = render "public/post_comments/counter", article: article
               i.fas.fa-tags
-               = article.article_tags.map(&:name).join(', ')
+              = article.article_tags.pluck(:name).join(',')
 = paginate @articles
