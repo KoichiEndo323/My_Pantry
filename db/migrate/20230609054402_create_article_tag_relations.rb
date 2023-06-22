@@ -1,8 +1,8 @@
 class CreateArticleTagRelations < ActiveRecord::Migration[6.1]
   def change
     create_table :article_tag_relations do |t|
-      t.references :article, null: false, foreign_key: true
-      t.references :article_tag, null: false, foreign_key: true
+      t.integer  :article_id, null: false, foreign_key: true
+      t.integer :article_tag_id, null: false, foreign_key: true
       #データの検索が多い場合にはreferenceを使用する
       t.timestamps
     end
