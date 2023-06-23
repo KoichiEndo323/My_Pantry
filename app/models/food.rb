@@ -1,8 +1,8 @@
 class Food < ApplicationRecord
 
   has_many :notifications, dependent: :destroy
-  belongs_to :storage, optional: true
-  belongs_to :end_user, optional: true
+  belongs_to :storage
+  belongs_to :end_user
   #optional: trueは関連するオブジェクトが存在しなくても、関連元のオブジェクトを保存することができる
 
   has_one_attached :image

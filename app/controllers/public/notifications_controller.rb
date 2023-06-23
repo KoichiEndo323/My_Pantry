@@ -8,12 +8,12 @@ class Public::NotificationsController < ApplicationController
   def destroy
     @notification = Notification.find(params[:id])
     @notification.destroy
-    redirect_to notification_path
+    redirect_to notifications_path
   end
 
   def destroy_all
     current_end_user.notifications.destroy_all
-    redirect_to notification_path, notice: '通知を全て削除しました。'
+    redirect_to notifications_path, notice: '通知を全て削除しました。'
   end
 
 

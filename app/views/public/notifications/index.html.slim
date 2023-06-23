@@ -3,7 +3,13 @@
   .row
     .col-md-12
       - if @notifications.present?
-        - @notifications.each do |notification|
+        - current_end_user.notifications.each do |notification|
           .alert.alert-info
-            | #{notification.food.name} の賞味期限は #{notification.food.end_date.to_s(:short)} までです！
+            = link_to food_path(notification.food.id) do
+              | #{notification.food.name} の賞味期限は #{l(notification.food.end_date, format: :short)} までです！
+            = link_to notification_path(notification.id), method: :delete do
+              i.fas.fa-trash-alt
+                | 削除
+      - else
+        .p 通知はありません。
 
