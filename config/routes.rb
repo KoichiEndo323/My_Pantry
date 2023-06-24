@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   #ゲストログイン用
   devise_scope :end_user do
     post 'end_users/guest_sign_in', to: 'public/sessions#guest_sign_in'
+    delete 'end_users/guest_sign_out', to: 'public/sessions#guest_sign_out'
   end
 
   scope module: :public do
@@ -21,11 +22,13 @@ Rails.application.routes.draw do
       resource :likes, only: [:create, :destroy]
     end
 
-    resources :end_users, only: [:show, :edit, :update]
-    get 'end_users/mypage' => 'end_users#show', as: 'mypage'
-    get 'end_users/check' => 'end_users#check'
-    patch  'end_users/withdraw' => 'end_users#withdraw'
-
+    resources :end_users, only: [:edit, :update] do
+      collection do
+        get 'mypage' => 'end_users#show', as: 'mypage'
+        get 'check' => 'end_users#check'
+        patch  'withdraw' => 'end_users#withdraw'
+      end
+    end
     resources :menus
 
     resources :notifications, only: [:index, :destroy]

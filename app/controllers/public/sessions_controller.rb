@@ -8,7 +8,16 @@ class Public::SessionsController < Devise::SessionsController
   def guest_sign_in
     end_user = EndUser.guest
     sign_in end_user
-    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
+    flash[:success] = 'ゲストユーザーとしてログインしました。'
+    redirect_to root_path
+  end
+
+  def destroy
+    if current_end_user.email == "guest@example.com"
+      current_end_user.foods.destroy_all
+      current_end_user.articles.destroy_all
+    end
+    super
   end
 
   def after_sign_in_path_for(resource)

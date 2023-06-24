@@ -1,3 +1,4 @@
 - flash.each do |key, value|
-  p.alert.alert-#{key}
-    = sanitize value, tags: %w(br)
+  div class=("alert #{flash_class_for(key)}") role="alert"
+    button.close data-dismiss="alert"  ×
+    = content_tag :div, value, class: key

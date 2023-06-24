@@ -25,17 +25,12 @@
 }
 
 header {
-  
+
 }
-
-
-
-
-
-
 
 .sidebar {
   position: fixed;
+  z-index: 10;
   left: -250px;
   background-color: #d48c42;
   width: 200px;
@@ -126,3 +121,31 @@ label #cancel{
 #check:checked ~ .label #cancel{
   left: 195px
 }
+
+.nav-item {
+  margin: auto 10px;
+}
+
+.alert-success {
+  color: green;
+}
+
+.alert-info {
+  color: blue;
+}
+
+.alert-warning {
+  color: orange;
+}
+
+.alert-danger {
+  color: red;
+}
+.actions {
+  margin: 10px;
+}
+
+
+
+
+

@@ -18,7 +18,11 @@ class Public::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-   super
+    super do |resource|
+      unless resource.errors.empty?
+        flash.now[:failed] = 'ユーザー登録に失敗しました。'
+      end
+    end
   end
 
   # GET /resource/edit

@@ -11,6 +11,9 @@ class EndUser < ApplicationRecord
 
   has_one_attached :profile_image
 
+    VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+    validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
+
   def get_profile_image(weight, height)
     unless profile_image.attached?
       file_path = Rails.root.join('app/assets/images/user_1.png')

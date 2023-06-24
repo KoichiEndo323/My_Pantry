@@ -3,7 +3,7 @@
     .col-md-5.col-sm-10.mx-2.mx-sm-auto.text-center.shadow-lg.rounded.px-0.my-5
       h5.text-dark.bg-light.py-4.mb-0 食材入力・編集フォーム
       .form-body.p-4
-        = form_with model:food storage, url: url do |f|
+        = form_with model: food, url: url do |f|
           .input-group.mb-3
             .input-group-prepend
               span.input-group-image aria-hidden="true"
@@ -32,5 +32,6 @@
             .input-group-prepend
               span.input-group-text aria-hidden="true"
                 .p 保存場所
-            = f.select :storage, class: "form-control"
+            = f.select :storage, ["冷蔵庫", "冷凍庫", "常温個", "備蓄品"], {}, class: "form-control"
+
           = f.submit submit, class: "btn btn-block btn-info mt-5"

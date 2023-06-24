@@ -1,26 +1,31 @@
-h3 記事詳細
-.card
-  .card-img-top
-    = image_tag @article.get_article_image(200,200), class: "article_image"
-  .card-body
-    h5.card-title
-      = @article.title
-    p.card-text
-      = @article.body
-    .card-footer
-      = image_tag @article.end_user.get_profile_image(40,40), class:"mt-3 rounded-circle"
-      = @article.end_user.nickname
-      div class="likes-#{@article.id}"
-        = render "public/likes/btn", article: @article
-      - @article.article_tags.each do |tag|
-        = tag.name
-        = "(#{tag.articles.count})"
-if @article.end_user == current_end_user
-  div.flex.align-center.pl5
-    = link_to "編集する", edit_article_path(@article), class: "btn btn-success"
-.form
-  .post-comments-counter
-    = render "public/post_comments/counter", article: @article
-  = render "public/post_comments/form", article: @article
-  .post-comments-index
-    = render "public/post_comments/index", article: @article
+.container.px-5.px-sm-0
+  h3 記事詳細
+  .row
+    .col-md-8
+      .card
+        .card-img-top
+          = image_tag @article.get_article_image(200,200), class: "article_image"
+        .card-body
+          h5.card-title
+            = @article.title
+          p.card-text
+            = @article.body
+          .card-footer
+            = image_tag @article.end_user.get_profile_image(40,40), class:"mt-3 rounded-circle"
+            = @article.end_user.nickname
+            div class="likes-#{@article.id}"
+              = render "public/likes/btn", article: @article
+            - @article.article_tags.each do |tag|
+              = tag.name
+              = "(#{tag.articles.count})"
+      if @article.end_user == current_end_user
+        div.flex.align-center.pl5
+          = link_to "編集する", edit_article_path(@article), class: "btn btn-success"
+          /= link_to "記事を削除する" ,
+    .col-md-3
+      .form
+        .post-comments-counter
+          = render "public/post_comments/counter", article: @article
+        = render "public/post_comments/form", article: @article
+        .post-comments-index
+          = render "public/post_comments/index", article: @article

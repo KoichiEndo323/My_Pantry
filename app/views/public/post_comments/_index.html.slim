@@ -3,11 +3,13 @@ table
     - article.post_comments.each do |post_comment|
       tr
         td
-          = link_to mypage_path(post_comment.end_user) do
+          = link_to mypage_end_users_path(post_comment.end_user) do
             = image_tag post_comment.end_user.get_profile_image(50,50)
             br
             = post_comment.end_user.nickname
         td = post_comment.comment
+        td = l(post_comment.created_at, format: :short)
         td
           - if post_comment.end_user == current_end_user
-            = link_to "コメント削除", article_post_comment_path(article, post_comment), method: :delete, class: "btn btn-danger pull-right", remote: true
+            = link_to article_post_comment_path(article, post_comment), method: :delete, data: {confirm:'削除してもよろしいですか？'},remote: true do
+              i.fas.fa-trash-alt

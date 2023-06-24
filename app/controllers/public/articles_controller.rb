@@ -19,10 +19,12 @@ class Public::ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     @article.end_user_id = current_end_user.id
-    article_tag_names = params[:article][:article_tag_ids].split(',') #1番目の引数に指定したパターンに従って文字列を分割し、分割された各部分文字列を要素とする配列を取得
-    input_tag_names = params[:article][:name].split(',')
-    article_tag_names.concat(input_tag_names)
-
+    params[:article][:article_tag_ids].delete("")
+    article_tag_names = params[:article][:article_tag_ids]
+    input_tag_names = params[:article][:name].split(',')#1番目の引数に指定したパターンに従って文字列を分割し、分割された各部分文字列を要素とする配列を取得
+    params[:article][:name].delete("")
+    article_tag_names.concat(input_tag_names) #
+    article_tag_names = article_tag_names.uniq #uniqで登録してあるタグとインプットして作成したタグが同じ名前なら一つにまとまる
     if @article.save
       @article.save_tag(article_tag_names)
       redirect_to articles_path, notice: '記事が投稿されました。'

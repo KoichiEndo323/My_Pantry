@@ -1,7 +1,7 @@
 class Food < ApplicationRecord
 
   has_many :notifications, dependent: :destroy
-  belongs_to :storage
+  belongs_to :storage, optional: true
   belongs_to :end_user
   #optional: trueは関連するオブジェクトが存在しなくても、関連元のオブジェクトを保存することができる
 
@@ -12,6 +12,7 @@ class Food < ApplicationRecord
   with_options presence: true do
     validates :image
     validates :name
+    validates :quantity, numericality: {only_integer: true, greater_than_or_equal_to: 0}
     validates :start_date
     validates :end_date
   end

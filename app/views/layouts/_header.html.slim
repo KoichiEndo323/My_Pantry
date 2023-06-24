@@ -1,4 +1,4 @@
-header.shadow-sm
+header.shadow
   nav.navbar.navbar-expand-lg.navbar-dark
     .container
       .row.justify-content-center
@@ -7,11 +7,10 @@ header.shadow-sm
           ul.navbar-nav.justify-content-around style="flex-direction: row;"
           - if !end_user_signed_in?
             li.nav-item
-              = link_to "MyPantryについて", homes_about_path, class: "nav-link"
+              = link_to "MyPantryについて", homes_about_path, class: "btn btn-info text-white"
             li.nav-item
-              = link_to "新規登録", new_end_user_registration_path, class: "nav-link"
+              = link_to "新規登録", new_end_user_registration_path, class: "btn btn-info text-white"
             li.nav-item
-              = link_to "会員ログイン", new_end_user_session_path, class: "nav-link"
+              = link_to "会員ログイン", new_end_user_session_path, class: "btn btn-info text-white"
             li.nav-item
-              = link_to 'ゲストログイン', end_users_guest_sign_in_path, method: :post, class: "nav-link"
-    = render "layouts/alert_message"
+              = link_to 'ゲストログイン', end_users_guest_sign_in_path, method: :post, class: "btn btn-info text-white"

@@ -4,6 +4,7 @@ class Public::FoodsController < ApplicationController
 
   def index
     @foods = Food.page(params[:page])
+    @storages = Storage.all
   end
 
   def new
@@ -22,10 +23,12 @@ class Public::FoodsController < ApplicationController
 
   def show
     @food = Food.find(params[:id])
+    @storages = Storage.find(params[:id])
   end
 
   def edit
     @food = Food.find(params[:id])
+    @storages = Storage.find(params[:id])
   end
 
   def update

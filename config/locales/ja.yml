@@ -17,22 +17,24 @@ ja:
       storage: "保管場所"
       admin: "管理者"
     attributes:
-      end_users:
+      end_user:
         email: "メールアドレス"
         nick_name: "ニックネーム"
         password: "パスワード"
-      foods:
+      food:
+        image: "食材画像"
         name: "食材名"
         quantity: "個数"
         start_date: "購入日"
         end_date: "賞味期限日"
         memo: "メモ"
         status: "状態"
-      articles:
+      article:
+        image: "記事画像"
         title: "タイトル"
         body: "本文"
         is_published: "公開設定"
-      storages:
+      storage:
         name: "保存場所名"
       notification:
         is_checked: "チェック"
@@ -217,7 +219,7 @@ ja:
     formats:
       default: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
       long: "%Y/%m/%d %H:%M"
-      short: "%m/%d"
+      short: "%m/%d %H:%M"
     pm: 午後
   views:
     pagination:

@@ -59,8 +59,6 @@ ActiveRecord::Schema.define(version: 2023_06_18_005050) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["article_id", "article_tag_id"], name: "index_article_tag_relations_on_article_id_and_article_tag_id", unique: true
-    t.index ["article_id"], name: "index_article_tag_relations_on_article_id"
-    t.index ["article_tag_id"], name: "index_article_tag_relations_on_article_tag_id"
   end
 
   create_table "article_tags", force: :cascade do |t|
@@ -85,7 +83,6 @@ ActiveRecord::Schema.define(version: 2023_06_18_005050) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "nickname", null: false
-    t.string "address"
     t.boolean "is_deleted", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -146,6 +143,4 @@ ActiveRecord::Schema.define(version: 2023_06_18_005050) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "article_tag_relations", "article_tags"
-  add_foreign_key "article_tag_relations", "articles"
 end
