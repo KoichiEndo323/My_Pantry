@@ -1,7 +1,8 @@
 class Public::HomesController < ApplicationController
 
   def top
-    @foods = Food.page(params[:page])
+    @q = Food.ransack(params[:q])
+    @foods = @q.result.page(params[:page])
   end
 
   def about

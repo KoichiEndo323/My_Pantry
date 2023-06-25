@@ -3,11 +3,12 @@
     .col-md-5.col-sm-10.mx-2.mx-sm-auto.text-center.shadow-lg.rounded.px-0.my-5
       h5.text-dark.bg-light.py-4.mb-0 食材入力・編集フォーム
       .form-body.p-4
-        = form_with model: food, url: url do |f|
+        = form_with model: food, url: url, local: true do |f|
           .input-group.mb-3
             .input-group-prepend
               span.input-group-image aria-hidden="true"
             = f.file_field :image, accept: "image/*", autofocus: true, class: "form-control"
+            #new-image
           .input-group.mb-3
             .input-group-prepend
               span.input-group-text aria-hidden="true"

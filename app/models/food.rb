@@ -25,6 +25,9 @@ class Food < ApplicationRecord
     image.variant(resize_to_limit: [width, height]).processed
   end
 
+  def self.ransackable_attributes(auth_object = nil)
+    ["created_at", "end_date", "end_user_id", "id", "memo", "name", "quantity", "start_date", "status", "updated_at"]
+  end
 
 
 

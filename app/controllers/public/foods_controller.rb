@@ -3,7 +3,8 @@ class Public::FoodsController < ApplicationController
 
 
   def index
-    @foods = Food.page(params[:page])
+    @q = Food.ransack(params[:q])
+    @foods = @q.result.page(params[:page])
     @storages = Storage.all
   end
 

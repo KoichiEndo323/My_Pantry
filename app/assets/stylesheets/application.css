@@ -145,7 +145,10 @@ label #cancel{
   margin: 10px;
 }
 
-
+.new-img{
+  width: 400px;
+  object-fit: cover;
+}
 
 
 

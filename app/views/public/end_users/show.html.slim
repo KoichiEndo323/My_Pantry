@@ -1,4 +1,4 @@
-.container.mt-4
+.container.px-5.px-sm-0
   h3 マイページ
   .row
     .col-md-4
@@ -13,11 +13,7 @@
           | 投稿した記事
           - @articles.each do |article|
             = link_to article.title, article_path(article)
-
-
-
-
-
+- unless current_end_user.email == 'guest@example.com'
   = link_to "編集", edit_end_user_path(@end_user.id), class: "btn btn-success ms-3"
   = link_to "退会", check_end_users_path, class: "btn btn-danger ms-3"
 

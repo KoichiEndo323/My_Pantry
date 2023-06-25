@@ -1,0 +1,6 @@
+= form_with url: articles_path, method: :get, local: true do |f|
+  = f.select :keyword, ArticleTag.all.map{ |article_tag| [article_tag.name, article_tag.id] }
+  button.btn.btn-success.mt-2.mb-2 type="submit"
+    i.fas.fa-search
+    | タグ検索
+

@@ -1,14 +1,10 @@
-section.inner
-  h2.section-ttl 食材詳細
-  .flex
-    div
+.container.px-5.px-sm-0
+  .row.justify-content-center
+    .col-md-3
+      h2 食材詳細
       .image_field
         = image_tag @food.get_food_image(200,200), class: "food_image"
-    table.food_info
-      thead
-        tr
-          th
-          th
+    .col-md-8.px-sm-0.offset-sm-1
       tbody
         tr
           td 食材名

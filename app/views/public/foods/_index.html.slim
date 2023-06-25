@@ -1,22 +1,24 @@
-.container.mt-4
-  h3 食材一覧
-  .row.row-cols-1.row-cols-md-3.g-4
-    - current_end_user.foods.each do |food|
-      .col
-        .card.h-100
-          .row.g-0
-            .col
-              = link_to food_path(food.id) do
-                = image_tag food.get_food_image(100, 100), class: "card-img"
-              .card-body
-                p.card-text
-                  | 個数 :
-                  = food.quantity
-                p.card-text
-                  | 購入日：
-                  = l(food.start_date, format: :short)
-                p.card-text
-                  |  賞味期限日：
-                  = l(food.end_date, format: :short)
-
+- if @foods.present?
+  - current_end_user.foods.each do |food|
+    .col
+      .card.h-100
+        .row.g-0
+          .col
+            .card-header.text-center
+              strong.font-weight-bold
+                = food.name
+            = link_to food_path(food.id) do
+              = image_tag food.get_food_image(100, 100), class: "card-img"
+            .card-body
+              p.card-text
+                | 個数 :
+                = food.quantity
+              p.card-text
+                | 購入日：
+                = l(food.start_date, format: :short)
+              p.card-text
+                |  賞味期限日：
+                = l(food.end_date, format: :short)
+- else
+  p 食材が登録されていません
   = paginate @foods

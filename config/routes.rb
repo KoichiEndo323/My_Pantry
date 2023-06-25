@@ -34,7 +34,6 @@ Rails.application.routes.draw do
     resources :notifications, only: [:index, :destroy]
     delete 'notifications/destroy_all' => 'notifications#destroy_all', as: 'destroy_all_notifications'
 
-    get "search" => "searches#search"
     get "search_article_tag" => "article_seaches#search_tag"
     get "search_food" => "food_seaches#seach_food"
   end

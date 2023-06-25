@@ -12,6 +12,12 @@ import "popper.js";
 import "bootstrap";
 import "../stylesheets/application";
 
+require("@rails/ujs").start()
+// require("turbolinks").start()  // コメントアウト
+require("@rails/activestorage").start()
+require("channels")
+require('./preview')  // 追記
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
