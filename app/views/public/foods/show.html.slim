@@ -8,21 +8,24 @@
         .card-body
           .table
             h5.card-title
-              | 食材名
+              | 食材名：
               = @food.name
             p.card-text
-              | 個数
+              | 個数：
               = @food.quantity
             p.card-text
-              | 購入日
+              | 購入日：
               = @food.start_date.strftime('%Y/%m/%d')
             p.card-text
-              | 賞味期限
+              | 賞味期限：
               = @food.end_date.strftime('%Y/%m/%d')
             p.card-text
-              | 保存場所
-              =
-      div.flex.align-center.pl5
+              | 保存場所：
+              /= @food.storage.name
+            p.card-text
+              | メモ：
+              = @food.memo
+        .card-footer
         = link_to "編集する", edit_food_path(@food), class: "btn btn-success"
         = link_to "削除する", food_path(@food), method: :delete, data: { confirm: '本当に削除しますか？' }
 

@@ -4,9 +4,9 @@
   .row.row-cols-1.row-cols-md-3.g-4
     - @articles.each do |article|
       .col.mb-3
-        .card.shadow
+        .card.h-100
           = link_to article_path(article.id) do
-            = image_tag article.get_article_image(290, nil), class: "card-img-top img-fluid", style: "object-fit: cover; height: 200px; width: 100%;"
+            = image_tag article.get_article_image(100, 100), class: "card-img-top img-fluid", style: "object-fit: cover; height: 200px; width: 100%;"
           .card-body
             .card-title
               .h5 = article.title
@@ -18,6 +18,7 @@
               div class="likes-#{article.id}"
                 = render "public/likes/btn", article: article
               = render "public/post_comments/counter", article: article
-              i.fas.fa-tags
-              = article.article_tags.pluck(:name).join(',')
+              div
+                i.fas.fa-tags
+                = article.article_tags.pluck(:name).join(',')
 = paginate @articles

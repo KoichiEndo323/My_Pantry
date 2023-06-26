@@ -14,8 +14,10 @@ class Article < ApplicationRecord
     validates :title
     validates :body
     #validates :article_tag
-    validates :is_published
+    #validates :is_published boolean型でpresenceだと適正ではない
   end
+
+  validates :is_published, inclusion: {in: [true, false]}
 
   # 公開・非公開機能
   scope :published, -> {where(is_published: true)}
@@ -30,7 +32,7 @@ class Article < ApplicationRecord
       file_path = Rails.root.join('app/assets/images/no_image.jpg')
       image.attach(io: File.open(file_path), filename: 'no_image.jpg', content_type: 'image/jpg')
     end
-      image.variant(resize_to_limit: [width, height]).processed
+      image
   end
 
 

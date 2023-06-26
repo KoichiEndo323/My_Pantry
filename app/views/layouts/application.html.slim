@@ -12,8 +12,7 @@ html
   body
     = render "layouts/header"
     = render "layouts/alert_message"
-    .container
-      = render "layouts/sidebar"
-      main
-        = yield
-      = render "layouts/footer"
+    = render "layouts/sidebar"
+    main
+      = yield
+    = render "layouts/footer"

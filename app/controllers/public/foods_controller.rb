@@ -24,12 +24,12 @@ class Public::FoodsController < ApplicationController
 
   def show
     @food = Food.find(params[:id])
-    @storages = Storage.find(params[:id])
+    @storage = Storage.find(params[:id])
   end
 
   def edit
     @food = Food.find(params[:id])
-    @storages = Storage.find(params[:id])
+    @storage = Storage.find(params[:id])
   end
 
   def update
