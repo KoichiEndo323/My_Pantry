@@ -25,7 +25,7 @@
 }
 
 header {
-
+  background-color: #f6dc9a;
 }
 
 .sidebar {
@@ -85,7 +85,7 @@ label #hamburgerBtn,
 label #cancel {
   position: absolute;
   cursor: pointer;
-  background-color: #f6dc9a;
+  background-color: #b3814f;
   border-radius: 3px;
 }
 
@@ -150,5 +150,6 @@ label #cancel{
   object-fit: cover;
 }
 
-
-
+.navbar{
+  margin-bottom : 0px;
+}

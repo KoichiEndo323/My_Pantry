@@ -1,22 +1,28 @@
 .container.px-5.px-sm-0
-  .row.justify-content-center
-    .col-md-3
-      h2 食材詳細
-      .image_field
-        = image_tag @food.get_food_image(200,200), class: "food_image"
-    .col-md-8.px-sm-0.offset-sm-1
-      tbody
-        tr
-          td 食材名
-          td= @food.name
-        tr
-          td 個数
-          td= @food.quantity
-        tr
-          td 購入日
-          td= @food.start_date.strftime('%Y/%m/%d')
-        tr
-          td 賞味期限
-          td= @food.end_date.strftime('%Y/%m/%d')
-    div.flex.align-center.pl5
-      = link_to "編集する", edit_food_path(@food), class: "btn btn-success"
+  h2 食材詳細
+  .row
+    .col-md-11
+      .card
+        .card-img-top
+          = image_tag @food.get_food_image(200,200), class: "food_image"
+        .card-body
+          .table
+            h5.card-title
+              | 食材名
+              = @food.name
+            p.card-text
+              | 個数
+              = @food.quantity
+            p.card-text
+              | 購入日
+              = @food.start_date.strftime('%Y/%m/%d')
+            p.card-text
+              | 賞味期限
+              = @food.end_date.strftime('%Y/%m/%d')
+            p.card-text
+              | 保存場所
+              =
+      div.flex.align-center.pl5
+        = link_to "編集する", edit_food_path(@food), class: "btn btn-success"
+        = link_to "削除する", food_path(@food), method: :delete, data: { confirm: '本当に削除しますか？' }
+

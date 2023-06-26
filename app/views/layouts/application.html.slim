@@ -12,7 +12,8 @@ html
   body
     = render "layouts/header"
     = render "layouts/alert_message"
-    = render "layouts/sidebar"
-    main.mb-auto
-      = yield
+    .container
+      = render "layouts/sidebar"
+      main
+        = yield
       = render "layouts/footer"

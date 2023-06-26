@@ -15,10 +15,10 @@
                 = food.quantity
               p.card-text
                 | 購入日：
-                = l(food.start_date, format: :short)
+                = food.start_date.strftime('%Y/%m/%d')
               p.card-text
                 |  賞味期限日：
-                = l(food.end_date, format: :short)
+                = food.end_date.strftime('%Y/%m/%d')
 - else
   p 食材が登録されていません
   = paginate @foods
