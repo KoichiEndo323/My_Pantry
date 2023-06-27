@@ -55,5 +55,10 @@
     <li><%= link_to new_end_user_session_path do %>
       <i class="fas fa-sign-in-alt"></i>ログイン
     <% end %></li>
+    <li><%= link_to end_users_guest_sign_in_path, method: :post do %>
+      <i class="fas fa-sign-in-alt"></i>ゲストログイン
+    <% end %></li>
+
+
 <% end %>
 </div>

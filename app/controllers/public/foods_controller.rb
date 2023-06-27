@@ -24,7 +24,7 @@ class Public::FoodsController < ApplicationController
 
   def show
     @food = Food.find(params[:id])
-    @storage = Storage.find(params[:id])
+    @storage = @food.storage
   end
 
   def edit
@@ -50,7 +50,7 @@ class Public::FoodsController < ApplicationController
   private
 
   def food_params
-    params.require(:food).permit(:image, :name, :quantity, :start_date, :end_date)
+    params.require(:food).permit(:image, :name, :quantity, :start_date, :end_date, :place, :memo)
   end
 end
 

@@ -2,22 +2,23 @@
   h3 マイページ
   .row
     .col-md-4
-      h2 プロフィール画像
-      .card(style="width: 18rem;")
-        = image_tag @end_user.get_profile_image(300, 300)
-      .card-body
-        h5.card-title
-          | ユーザー名:
-          = @end_user.nickname
-        h5.card-title
-          | 投稿した記事
-          - @articles.each do |article|
-            = link_to article.title, article_path(article)
-- unless current_end_user.email == 'guest@example.com'
-  = link_to "編集", edit_end_user_path(@end_user.id), class: "btn btn-success ms-3"
-  = link_to "退会", check_end_users_path, class: "btn btn-danger ms-3"
-
-
+      h3 プロフィール画像
+      .card.shadow
+        .card-img-top.text-center
+          = image_tag @end_user.get_profile_image(300, 300), class: "profile_image"
+        .card-body
+          h5.card-title
+            | ユーザー名:
+            = @end_user.nickname
+          p.card-text
+            | 投稿した記事：
+            - @articles.each do |article|
+              = link_to article.title, article_path(article)
+              | &nbsp;
+        .card-footer
+          - unless current_end_user.email == 'guest@example.com'
+            = link_to "編集", edit_end_user_path(@end_user.id), class: "btn btn-success"
+            = link_to "退会", check_end_users_path, class: "btn btn-danger"
 
 
 

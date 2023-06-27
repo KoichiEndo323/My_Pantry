@@ -13,6 +13,9 @@
  *= require_tree .
  *= require_self
  */
+  @import url('https://fonts.googleapis.com/css2?family=Kosugi+Maru&family=M+PLUS+1+Code:wght@500&display=swap');
+
+
 
 * {
   margin: 0;
@@ -21,11 +24,15 @@
   list-style: none;
   text-decoration: none;
   color: #6c6b6b;
-  font-family: "M PLUS 1p", sans-serif;
+  font-family: 'Kosugi Maru', sans-serif;
 }
 
 header {
   background-color: #f6dc9a;
+}
+
+body {
+  background-color: #60a468;
 }
 
 .sidebar {
@@ -39,7 +46,7 @@ header {
 }
 
 .sidebar header{
-  font-size: 22px;
+  font-size: 20px;
   color: white;
   text-align: center;
   line-height: 70px;
@@ -90,8 +97,8 @@ label #cancel {
 }
 
 label #hamburgerBtn {
-  left: 40px;
-  top: 25px;
+  right: 50px;
+  top: 50px;
   font-size: 25px;
   color: white;
   padding:6px 12px;
@@ -153,12 +160,84 @@ label #cancel{
 .navbar{
   margin-bottom : 0px;
 }
+main{
+  height: 100%;
+}
 
+/* メインビジュアル */
+main .main-visual {
+    width: 100%;
+    height: 100%;
+    background-image: url('yasai_l.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center top;
+  }
 
-.main-visual {
+@media screen and (min-width: 425px)
+{
+  main .main-visual {
+    width: 100%;
+    height: 100%;
+    background-image: url('yasai_l.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+  }
+}
+
+.main-visual-content{
   width: 100%;
-  height: 800px;
-  background-image: image-url('yasai.jpg');
-  background-size: cover;
-  background-position: center;
+  height: 100%;
+  text-align: center;
+  padding-top: 400px;
+}
+
+.main-visual-content h1,
+.main-visual-content p {
+  color: black;
+}
+
+
+.card {
+  background-color: #dedcb8;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-footer .edit-link {
+  margin-right: auto;
+}
+
+.card-footer .delete-link {
+  margin-left: auto;
+}
+
+.card-footer .edit-link i {
+  color: green;
+}
+
+.card-footer .edit-link span {
+  color: green;
+}
+
+.card-footer .delete-link i {
+  color: red;
+}
+
+.card-footer .derete-link span {
+  color: red;
+}
+
+
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+footer .div {
+  background-color: #60a468;
 }

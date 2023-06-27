@@ -13,10 +13,10 @@ import "bootstrap";
 import "../stylesheets/application";
 
 require("@rails/ujs").start()
-// require("turbolinks").start()  // コメントアウト
+// require("turbolinks").start()  //
 require("@rails/activestorage").start()
 require("channels")
-require('./preview')  // 追記
+require('./preview')
 
 Rails.start()
 Turbolinks.start()

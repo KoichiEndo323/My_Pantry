@@ -19,6 +19,12 @@
               p.card-text
                 |  賞味期限日：
                 = food.end_date.strftime('%Y/%m/%d')
+            .card-footer
+              p.card-text
+                = days_until(food.end_date)
+              p.card-text
+                = link_to food_path(food.id), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "delete-link" do
+                  i.fas.fa-trash-alt.fa-lg
 - else
   p 食材が登録されていません
   = paginate @foods

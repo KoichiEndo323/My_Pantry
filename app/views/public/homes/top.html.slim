@@ -1,9 +1,15 @@
 - if end_user_signed_in?
-.container.px-5.px-sm-0
-  - if end_user_signed_in?
+  .container.px-5.px-sm-0
     = render "public/foods/foods_seaches", q: @q
     .row.row-cols-1.row-cols-md-3.g-4
       = render "public/foods/index", foods: @foods
-  - else
-    .main-visual
+- else
+  .main-visual
+    .container
       .main-visual-content
+        h1 食材管理サイト MyPantry
+        p 家の中の食料品を登録して、賞味期限を管理する事ができます。
+        p また、レシピや保存方法などの記事を投稿・閲覧することが出来ます。
+        = link_to "さっそく使ってみましょう", new_end_user_registration_path, class: "btn btn-info"
+        div(style="margin-top: 15px;")
+          = link_to "ゲストログイン", end_users_guest_sign_in_path, method: :post, class: "btn btn-success"
