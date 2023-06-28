@@ -50,7 +50,7 @@ class Public::FoodsController < ApplicationController
   private
 
   def food_params
-    params.require(:food).permit(:image, :name, :quantity, :start_date, :end_date, :place, :memo)
+    params.require(:food).permit(:image, :name, :quantity, :start_date, :end_date, :memo)
   end
 end
 
