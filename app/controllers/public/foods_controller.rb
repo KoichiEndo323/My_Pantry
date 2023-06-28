@@ -5,7 +5,7 @@ class Public::FoodsController < ApplicationController
   def index
     @q = Food.ransack(params[:q])
     @foods = @q.result.page(params[:page])
-    @storages = Storage.all
+    #@storages = Storage.all
   end
 
   def new
@@ -24,12 +24,12 @@ class Public::FoodsController < ApplicationController
 
   def show
     @food = Food.find(params[:id])
-    @storage = @food.storage
+    #@storage = @food.storage
   end
 
   def edit
     @food = Food.find(params[:id])
-    @storage = Storage.find(params[:id])
+    #@storage = Storage.find(params[:id])
   end
 
   def update
