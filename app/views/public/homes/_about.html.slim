@@ -4,11 +4,11 @@
     .col-md-4
       h3 食材登録
       .card.shadow.h-60
-        = image_tag asset_path('how_to_1.jpg', alt: '', class: 'card-img-top')
+        = image_tag asset_path('how_to_1.jpg'), alt: '', class: 'card-img-top'
         .card-body
           p.card-text
             | ①ログイン後、食材登録フォームにて登録
-        = image_tag asset_path('how_to_3.png', alt: '', class: 'card-img-top')
+        = image_tag asset_path('how_to_3.png'), alt: '', class: 'card-img-top'
         .card-body
           p.card-text
             | ②一覧画面では、食品名から検索が可能です。
@@ -19,11 +19,11 @@
     .col-md-4
       h3 記事投稿
       .card.shadow.h-60
-        = image_tag asset_path('how_to_8.jpg', alt: '', class: 'card-img-top')
+        = image_tag asset_path('how_to_8.jpg'), alt: '', class: 'card-img-top'
         .card-body
           p.card-text
             | ①ログイン後、記事投稿フォームにて投稿（非公開設定も可能）
-        = image_tag('how_to_6.png', alt: '', class: 'card-img-top')
+        = image_tag asset_path('how_to_6.png'), alt: '', class: 'card-img-top'
         .card-body
           p.card-text
             | ②一覧画面では、タグ検索が可能です。
@@ -34,7 +34,7 @@
     .col-md-4
       h3 通知機能
       .card.shadow.h-60
-        = image_tag asset_path('how_to_7.jpg', alt: '', class: 'card-img-top')
+        = image_tag asset_path('how_to_7.jpg'), alt: '', class: 'card-img-top'
         .card-body
           p.card-text
             | ログイン後、通知一覧では、賞味期限が切れてしまった
@@ -43,13 +43,13 @@
       .about-visual
         .container
           .about-visual-content
-            = image_tag asset_path('family.svg', alt: '', class: 'visual-image' ,size: '150x150')
+            = image_tag asset_path('family.svg'), alt: '', class: 'visual-image', size: '150x150'
           p お子さんがいるご家族や
           .about-visual-content
-            = image_tag asset_path('cook.svg', alt: '', class: 'visual-image' ,size: '150x150')
+            = image_tag asset_path('cook.svg'), alt: '', class: 'visual-image', size: '150x150'
           p これから自炊を始める人にもおすすめです
           .about-visual-content
-            = image_tag asset_path('trash.svg', alt: '', class: 'visual-image' ,size: '150x150')
+            = image_tag asset_path('trash.svg'), alt: '', class: 'visual-image', size: '150x150'
           p 賞味期限を管理してフードロスを無くそう！！
           .about-visual-content.mb-5
             = link_to "使ってみる", new_end_user_registration_path, class: "btn btn-info"
