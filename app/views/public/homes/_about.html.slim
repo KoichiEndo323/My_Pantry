@@ -1,3 +1,55 @@
-.about-visual
-  .container
-    .about-visual-content
+.container.px-5.px-sm-0.text-center
+  h1 MyPantryの使い方
+  .row
+    .col-md-4
+      h3 食材登録
+      .card.shadow.h-60
+        = image_tag('how_to_1.jpeg', alt: '', class: 'card-img-top')
+        .card-body
+          p.card-text
+            | ①ログイン後、食材登録フォームにて登録
+        = image_tag('how_to_3.png', alt: '', class: 'card-img-top')
+        .card-body
+          p.card-text
+            | ②一覧画面では、食品名から検索が可能です。
+            br
+            | また、現在時刻（日本時間）から
+            br
+            | 賞味期限までの日数をカウントしています
+    .col-md-4
+      h3 記事投稿
+      .card.shadow.h-60
+        = image_tag('how_to_8.jpeg', alt: '', class: 'card-img-top')
+        .card-body
+          p.card-text
+            | ①ログイン後、記事投稿フォームにて投稿（非公開設定も可能）
+        = image_tag('how_to_6.png', alt: '', class: 'card-img-top')
+        .card-body
+          p.card-text
+            | ②一覧画面では、タグ検索が可能です。
+            br
+            | また、ユーザーページでは自分が投稿した記事の一覧や
+            br
+            | いいねした記事の一覧が表示されます。
+    .col-md-4
+      h3 通知機能
+      .card.shadow.h-60
+        = image_tag('how_to_7.jpeg', alt: '', class: 'card-img-top')
+        .card-body
+          p.card-text
+            | ログイン後、通知一覧では、賞味期限が切れてしまった
+            br
+            | 食材を一覧にして表示させています。
+      .about-visual
+        .container
+          .about-visual-content
+            = image_tag('family.svg', alt: '', class: 'visual-image' ,size: '150x150')
+          p お子さんがいるご家族や
+          .about-visual-content
+            = image_tag('cook.svg', alt: '', class: 'visual-image' ,size: '150x150')
+          p これから自炊を始める人にもおすすめです
+          .about-visual-content
+            = image_tag('trash.svg', alt: '', class: 'visual-image' ,size: '150x150')
+          p 賞味期限を管理してフードロスを無くそう！！
+          .about-visual-content.mb-5
+            = link_to "使ってみる", new_end_user_registration_path, class: "btn btn-info"

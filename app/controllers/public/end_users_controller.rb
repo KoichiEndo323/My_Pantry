@@ -3,7 +3,8 @@ class Public::EndUsersController < ApplicationController
 
   def show
     @end_user = EndUser.find(current_end_user.id)
-    @articles = @end_user.articles.page(params[:page])
+    @articles = @end_user.articles.page(params[:page]).per(5)
+    @favorites_articles = @end_user.favorites.page(params[:page]).per(5)
   end
 
   def edit

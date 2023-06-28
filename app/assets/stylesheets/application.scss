@@ -161,7 +161,7 @@ label #cancel{
   margin-bottom : 0px;
 }
 main{
-  height: 100%;
+  // height: 100%;
 }
 
 /* メインビジュアル */
@@ -190,7 +190,7 @@ main .main-visual {
   width: 100%;
   height: 100%;
   text-align: center;
-  padding-top: 400px;
+  padding-top: 300px;
 }
 
 .main-visual-content h1,
@@ -238,6 +238,11 @@ main .main-visual {
   height: 100%;
 }
 
-footer .div {
+footer {
   background-color: #60a468;
+  margin-top: auto;
+}
+
+.about-visual .about-visual-content {
+
 }

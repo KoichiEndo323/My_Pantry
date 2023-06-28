@@ -1,10 +1,11 @@
-footer.bg-dark text-white pt-5 pb-4
-  .containar
+footer.pt-2.pb-2
+  .container
     - if current_end_user.try(:admin?)
       = link_to '管理者ログイン', rails_admin_path
     .row.justify-content-center
-      i.fa-brands.fa-twitter
-      i.fa-brands.fa-line
-      i.fa-brands.fa-instagram
-      small
-        | &copy; My_Pantry
+      = link_to "https://twitter.com/MyPantry_PF" do
+        i.fa-brands.fa-twitter.fa-2x.mr-4
+      p.mr-4 お問い合わせフォーム
+      p.mr-4 利用規約
+      p プライベートポリシー
+    p.mt-1.text-center &copy; My_Pantry

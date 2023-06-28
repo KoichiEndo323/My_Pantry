@@ -5,6 +5,7 @@ class EndUser < ApplicationRecord
   has_many :foods, dependent: :destroy
   has_many :articles, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :favorites, through: :likes, source: :article
   has_many :notifications, dependent: :destroy
   has_many :post_comments, dependent: :destroy
   has_many :menus, dependent: :destroy

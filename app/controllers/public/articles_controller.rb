@@ -2,7 +2,8 @@ class Public::ArticlesController < ApplicationController
 
   def index
     if params[:keyword].present?
-      flash.now[:notice] = "#{params[:keyword]}タグの検索結果"
+      tag_name = ArticleTag.find(params[:keyword]).name
+      flash.now[:notice] = "『#{tag_name}』タグの検索結果"
       @articles = ArticleTag.find(params[:keyword]).articles.published.page(params[:page]).per(10)
     else
       @articles = Article.published.page(params[:page]).per(10)
@@ -27,7 +28,7 @@ class Public::ArticlesController < ApplicationController
     article_tag_names = article_tag_names.uniq #uniqで登録してあるタグとインプットして作成したタグが同じ名前なら一つにまとまる
     if @article.save
       @article.save_tag(article_tag_names)
-      redirect_to articles_path, notice: '記事が投稿されました。'
+      redirect_to articles_path, notice: '記事が作成されました。'
     else
       render :new
     end
