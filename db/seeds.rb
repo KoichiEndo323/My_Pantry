@@ -17,7 +17,8 @@ Admin.create!(
 EndUser.create!(
   nickname: "いっち",
   email: "sample@sample.com",
-  password: "123456"
+  password: "123456",
+  admin: true
 )
 
 # 投稿記事タグデータ
