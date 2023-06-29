@@ -93,11 +93,11 @@ ActiveRecord::Schema.define(version: 2023_06_18_005050) do
 
   create_table "foods", force: :cascade do |t|
     t.integer "end_user_id", null: false
+    t.integer "storage_id", null: false
     t.string "name", null: false
     t.string "quantity", null: false
     t.datetime "start_date", null: false
     t.datetime "end_date", null: false
-    t.string "place"
     t.string "memo"
     t.integer "status", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
@@ -136,7 +136,6 @@ ActiveRecord::Schema.define(version: 2023_06_18_005050) do
   end
 
   create_table "storages", force: :cascade do |t|
-    t.integer "food_id"
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

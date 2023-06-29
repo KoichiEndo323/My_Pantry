@@ -5,7 +5,7 @@ class Public::FoodsController < ApplicationController
   def index
     @q = Food.ransack(params[:q])
     @foods = @q.result.page(params[:page])
-    #@storages = Storage.all
+    @storages = Storage.all
   end
 
   def new
@@ -14,6 +14,8 @@ class Public::FoodsController < ApplicationController
 
   def create
     @food = Food.new(food_params)
+    storage_name = params[:food][:storage_name]
+    storage = Storage.find_by(name: storage_name)
     @food.end_user_id = current_end_user.id
     if @food.save
       redirect_to foods_path, notice: '食材が登録されました。'
@@ -24,12 +26,12 @@ class Public::FoodsController < ApplicationController
 
   def show
     @food = Food.find(params[:id])
-    #@storage = @food.storage
+    storage = @food.storage.name
   end
 
   def edit
     @food = Food.find(params[:id])
-    #@storage = Storage.find(params[:id])
+    storage = @food.storage.name
   end
 
   def update
@@ -50,7 +52,7 @@ class Public::FoodsController < ApplicationController
   private
 
   def food_params
-    params.require(:food).permit(:image, :name, :quantity, :start_date, :end_date, :memo)
+    params.require(:food).permit(:image, :name, :quantity, :start_date, :end_date,:storage_id, :memo)
   end
 end
 

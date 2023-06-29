@@ -33,7 +33,7 @@
             .input-group-prepend
               span.input-group-text aria-hidden="true"
                 .p 保存場所
-            /= f.select :place, ["冷蔵庫", "冷凍庫", "常温庫", "備蓄品"], {}, class: "form-control"
+            = f.collection_select :storage_id, Storage.pluck(:name, :id).map { |name, id| [name, id] }, :last, :first, {}, class: "form-control"
           .input-group.mb-3
             .input-group-prepend
               span.input-group-text aria-hidden="true"
