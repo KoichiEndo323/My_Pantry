@@ -4,9 +4,10 @@ class Public::FoodsController < ApplicationController
 
   def index
     @q = Food.ransack(params[:q])
-    @foods = @q.result.page(params[:page])
+    @foods = @q.result(distinct: true)
     @storages = Storage.all
   end
+
 
   def new
     @food = Food.new
