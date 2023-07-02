@@ -4,6 +4,7 @@ class Public::MenusController < ApplicationController
   end
 
   def new
+    @munu = Munu.new
   end
 
   def create
