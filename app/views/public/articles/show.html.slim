@@ -4,7 +4,7 @@
     .col-md-11
       .card
         .card-img-top.text-center
-          = image_tag @article.get_article_image(200, 200), class: "article_image"
+          = image_tag @article.get_article_image(200,200), class: "card-img-top img-fluid", style: "object-fit: cover; height: 50vh; width: 100%;"
         .card-body
           h5.card-title
             = @article.title
