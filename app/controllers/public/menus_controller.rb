@@ -1,6 +1,8 @@
 class Public::MenusController < ApplicationController
 
   def index
+    @menus = Menu.all
+
   end
 
   def new
@@ -26,15 +28,24 @@ class Public::MenusController < ApplicationController
   end
 
   def update
+    @menu = Menu.find(params[:id])
+    if @menu.update(menu_params)
+      redirect_to menus_path, notice: '食事内容が変更されました。'
+    else
+      render :edit
+    end
   end
 
   def destroy
+    @menu = Menu.find(params[:id])
+    @menu.destroy
+    redirect_to menus_path, notice: '食事内容を削除しました。'
   end
-  
+
    private
 
   def menu_params
-    params.require(:menu).permit(:image, :name, :quantity, :start_date, :end_date,:storage_id, :memo)
+    params.require(:menu).permit(:image, :title, :memo)
   end
-  
+
 end
