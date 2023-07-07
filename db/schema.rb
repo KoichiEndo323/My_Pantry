@@ -95,7 +95,7 @@ ActiveRecord::Schema.define(version: 2023_06_18_005050) do
     t.integer "end_user_id", null: false
     t.integer "storage_id", null: false
     t.string "name", null: false
-    t.string "quantity", null: false
+    t.integer "quantity", null: false
     t.datetime "start_date", null: false
     t.datetime "end_date", null: false
     t.string "memo"

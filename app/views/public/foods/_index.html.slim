@@ -13,10 +13,12 @@
               p.card-text
                 | 個数 :
                 span
-                  i.fas.fa-minus-circle
+                  = link_to decrease_food_path(food.id), method: :patch , class: "flex justify-center" do
+                    i.fas.fa-minus-circle
                 = food.quantity
                 span
-                  i.fas.fa-plus-circle
+                  = link_to increase_food_path(food.id), method: :patch , class: "flex justify-center" do
+                    i.fas.fa-plus-circle
               p.card-text
                 | 購入日：
                 = food.start_date.strftime('%Y/%m/%d')

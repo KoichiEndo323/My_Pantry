@@ -1,13 +1,12 @@
 class Public::FoodsController < ApplicationController
-
-
+before_action :authenticate_end_user!
+before_action :set_food , only: %i[increase decrease]
 
   def index
     @q = Food.ransack(params[:q])
     @foods = @q.result(distinct: true)
     @storages = Storage.all
   end
-
 
   def new
     @food = Food.new
@@ -65,6 +64,10 @@ class Public::FoodsController < ApplicationController
 
   def food_params
     params.require(:food).permit(:image, :name, :quantity, :start_date, :end_date,:storage_id, :memo)
+  end
+
+  def set_food
+    @food = current_end_user.foods.find(params[:id])
   end
 
   def decrease_or_destroy(food)
