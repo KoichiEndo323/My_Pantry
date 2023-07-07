@@ -14,9 +14,13 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: 'homes#top'
     get 'homes/about'
-    resources :foods
+    resources :foods do
+      member do
+        patch 'increase'
+        patch 'decrease'
+      end
       resources :storages, only:[:index]
-
+    end
     resources :articles do
       resources :post_comments, only:[:create, :destroy]
       resource :likes, only: [:create, :destroy]

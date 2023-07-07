@@ -50,10 +50,29 @@ class Public::FoodsController < ApplicationController
     redirect_to foods_path, notice: '食材を削除しました。'
   end
 
+  def increase
+    @food.increment!(:quantity, 1)
+    redirect_to request.referer, notice: '個数を増やしました'
+  end
+
+  def decrease
+    decrease_or_destroy(@food)
+    redirect_to request.referer, notice: '個数を減らしました'
+  end
+
+
   private
 
   def food_params
     params.require(:food).permit(:image, :name, :quantity, :start_date, :end_date,:storage_id, :memo)
   end
-end
 
+  def decrease_or_destroy(food)
+    if food.quantity > 1
+      food.decrement!(:quantity, 1)
+    else
+      food.destroy
+    end
+  end
+
+end

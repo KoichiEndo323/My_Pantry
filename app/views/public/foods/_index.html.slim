@@ -12,7 +12,11 @@
             .card-body
               p.card-text
                 | 個数 :
+                span
+                  i.fas.fa-minus-circle
                 = food.quantity
+                span
+                  i.fas.fa-plus-circle
               p.card-text
                 | 購入日：
                 = food.start_date.strftime('%Y/%m/%d')
