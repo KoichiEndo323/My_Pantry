@@ -1,0 +1,56 @@
+/ toggle section
+input#check[type="checkbox"]
+label[for="check"]
+  i.fas.fa-bars#hamburgerBtn
+  i.fas.fa-times#cancel
+
+/ sidebar section
+.sidebar
+  - if end_user_signed_in?
+    header
+      = link_to mypage_end_users_path do
+        = image_tag current_end_user.get_profile_image(40, 40), class: "mt-3 rounded-circle"
+        = current_end_user.nickname
+    ul
+      li
+        = link_to new_food_path do
+          i.fas.fa-folder-plus
+          | 食材登録
+      li
+        = link_to foods_path do
+          i.fas.fa-carrot
+          | 食材一覧
+      li
+        = link_to new_article_path do
+          i.fas.fa-folder-plus
+          | 記事投稿
+      li
+        = link_to articles_path do
+          i.far.fa-newspaper
+          | 記事一覧
+      li
+        = link_to notifications_path do
+          i.fa-solid.fa-bell
+          | 通知一覧
+      li
+        = link_to destroy_end_user_session_path, method: :delete do
+          i.fas.fa-sign-out-alt
+          | ログアウト
+  - else
+    ul
+      li
+        = link_to homes_about_path do
+          i.fas.fa-seedling
+          | 使い方
+      li
+        = link_to new_end_user_registration_path do
+          i.fas.fa-user-plus
+          | 新規登録
+      li
+        = link_to new_end_user_session_path do
+          i.fas.fa-sign-in-alt
+          | ログイン
+      li
+        = link_to end_users_guest_sign_in_path, method: :post do
+          i.fas.fa-sign-in-alt
+          | ゲストログイン
