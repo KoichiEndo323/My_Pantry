@@ -102,6 +102,8 @@ ActiveRecord::Schema.define(version: 2023_06_18_005050) do
     t.integer "status", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "price"
+    t.integer "#<ActiveRecord::ConnectionAdapters::SQLite3::TableDefinition:0x00007fe12df0c290>"
   end
 
   create_table "likes", force: :cascade do |t|
