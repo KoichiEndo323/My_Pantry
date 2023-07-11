@@ -63,7 +63,7 @@ before_action :set_food , only: %i[increase decrease]
   private
 
   def food_params
-    params.require(:food).permit(:image, :name, :quantity, :start_date, :end_date,:storage_id, :memo)
+    params.require(:food).permit(:image, :name, :quantity, :start_date, :end_date,:storage_id, :memo, :price)
   end
 
   def set_food

@@ -24,6 +24,9 @@
           p.card-text
             | メモ：
             = @food.memo
+          p.card-text
+            | 値段 :
+            = @food.price
       .card-footer.mb-10
         = link_to edit_food_path(@food), class: "edit-link" do
           i.fas.fa-edit
