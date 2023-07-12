@@ -8,6 +8,7 @@
             .input-group-prepend
               span.input-group-image
             = f.file_field :image, accept: "image/*", autofocus: true, class: "form-control"
+            #new-image
           .input-group.mb-3
             .input-group-prepend
               span.input-group-text
@@ -22,9 +23,10 @@
             .input-group-prepend
               span.input-group-text
                 i.fas.fa-tags
-            = f.text_field :name, class: "form-control"
+            = f.text_field :name, class: "form-control", placeholder: "タグ"
             .input-group-prepend
-              = f.label "タグ(,で区切ると複数タグ登録できます)"
+              = f.label "(,で区切ると複数タグ登録できます)"
+            .input-group-prepend
               = f.collection_check_boxes :article_tag_ids, ArticleTag.all, :name, :name do |tag|
                 .form-check
                   = tag.check_box class: 'form-check-input'
