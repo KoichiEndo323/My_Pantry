@@ -9,10 +9,10 @@ html
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
-  body
+  body.d-flex.flex-column.vh-100
     = render "layouts/header"
-    = render "layouts/alert_message"
-    main
+    .containar.d-flex
       = render "layouts/sidebar2"
-      = yield
+      main
+        = yield
     = render "layouts/footer"

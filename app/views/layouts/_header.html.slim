@@ -1,6 +1,7 @@
-header.shadow
+header
   .containar
     nav.navbar.navbar-expand-lg.navbar-dark
       .row.justify-content-center
         = link_to root_path do
-          = image_tag asset_path('My_Pantry_Logo.svg'), alt: '', size: '150x150'
+          = image_tag asset_path('My_Pantry_Logo.svg'), alt: '', size: '140x140'
+  = render "layouts/alert_message"
