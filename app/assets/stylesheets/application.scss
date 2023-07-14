@@ -15,8 +15,6 @@
  */
   @import url('https://fonts.googleapis.com/css2?family=Kosugi+Maru&family=M+PLUS+1+Code:wght@500&display=swap');
 
-
-
 * {
   margin: 0;
   padding: 0;
@@ -32,12 +30,11 @@ header {
 }
 
 .sidebar {
-  position: fixed;
-  z-index: 10;
-  left: -250px;
+  position: relative;
   background-color: #d48c42;
-  width: 200px;
-  height: 100%;
+  width: 250px;
+  height: 100vh;
+  box-shadow: 10px 0 0 #f6dc9a;
   transition: all 0.5s;
 }
 
@@ -52,77 +49,49 @@ header {
 .sidebar header a{
   color: white;
   text-align: center;
+  text-decoration: none;
+}
+
+.sidebar header:hover {
+  background-color: #875829;
 }
 
 .sidebar header img{
   margin-bottom: 20px;
 }
 
-.sidebar ul a{
+.sidebar ul li {
   display: block;
   height: 100%;
   width: 100%;
-  line-height: 65px;
+  position: relative;
+  line-height: 70px;
   color: white;
   font-size: 20px;
   padding-left: 40px;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  border-bottom: 1px solid black;
+  border-radius: 15px;
   transition: 0.4s;
 }
 
-ul li:hover a{
-  padding-left: 50px;
+.sidebar ul li:hover {
+  background-color: #875829;
+}
+
+
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.sidebar ul li a i {
+  color: white;
+  font-size: 1.5rem;
+  padding-right: 30px;
 }
 
 .sidebar ul a i{
   margin-right: 16px;
-}
-
-/* toggle section */
-#check {
-  display: none;
-}
-
-label #hamburgerBtn,
-label #cancel {
-  position: absolute;
-  cursor: pointer;
-  background-color: #b3814f;
-  border-radius: 3px;
-}
-
-label #hamburgerBtn {
-  right: 50px;
-  top: 50px;
-  font-size: 25px;
-  color: white;
-  padding:6px 12px;
-  transition: all 0.5px;
-}
-
-label #cancel{
-  z-index: 10px;
-  left: -195px;
-  top: 17px;
-  font-size: 30px;
-  color: white;
-  padding: 4px 9px;
-  transition: all 0.5s;
-}
-
-#check:checked ~ .sidebar{
-  left: 0;
-}
-
-#check:checked ~ .label #hamburgerBtn{
-  left: 250px;
-  opacity: 0;
-  pointer-events: none;
-}
-
-#check:checked ~ .label #cancel{
-  left: 195px
 }
 
 .nav-item {
@@ -155,9 +124,6 @@ label #cancel{
 
 .navbar{
   margin-bottom : 0px;
-}
-main{
-  // height: 100%;
 }
 
 /* メインビジュアル */
@@ -194,7 +160,7 @@ main .main-visual {
   color: black;
 }
 
-
+/*cardのcss*/
 .card-footer {
   display: flex;
   justify-content: space-between;
