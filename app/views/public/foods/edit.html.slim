@@ -1,4 +1,5 @@
-section.inner
-h2.section-ttl = "#{@food.name}の編集"
-= render "layouts/errors", resource: @food
-= render 'form', food: @food, url: food_path(@food), submit: '更新'
+.container
+  h2.justify-contents-center
+  　= "#{@food.name}の編集"
+  = render "layouts/errors", resource: @food
+  = render 'form', food: @food, url: food_path(@food), submit: '更新'

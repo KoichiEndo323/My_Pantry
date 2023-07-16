@@ -1,7 +1,11 @@
 header
-  .containar
+  .container
     nav.navbar.navbar-expand-lg.navbar-dark
       .row.justify-content-center
         = link_to root_path do
           = image_tag asset_path('My_Pantry_Logo.svg'), alt: '', size: '140x140'
+      button.navbar-toggle
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
   = render "layouts/alert_message"

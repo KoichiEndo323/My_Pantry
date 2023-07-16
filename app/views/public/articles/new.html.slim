@@ -1,3 +1,5 @@
-h2 記事新規投稿
-= render "layouts/errors", resource: @article
-= render 'form', article: @article, url: articles_path, submit: '新規投稿'
+.container
+  h2.justify-contents-center
+    | 記事新規作成
+  = render "layouts/errors", resource: @article
+  = render 'form', article: @article, url: articles_path, submit: '新規投稿'

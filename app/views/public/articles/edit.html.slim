@@ -1,4 +1,5 @@
-section.inner
-h2.section-ttl = "記事編集"
-= render "layouts/errors", resource: @article
-= render 'form', article: @article, url: article_path(@article), submit: '変更して投稿'
+.container
+  h2.justify-contents-center
+    | 記事編集
+  = render "layouts/errors", resource: @article
+  = render 'form', article: @article, url: article_path(@article), submit: '変更して投稿'
