@@ -4,7 +4,7 @@ class Public::ArticlesController < ApplicationController
     if params[:keyword].present?
       tag_name = ArticleTag.find(params[:keyword]).name
       flash.now[:notice] = "『#{tag_name}』タグの検索結果"
-      @articles = ArticleTag.find(params[:keyword]).articles.published.page(params[:page]).per(10)
+      @articles = ArticleTag.find(params[:keyword]).articles.published.page(params[:page]).per(12)
     else
       @articles = Article.published.page(params[:page]).per(10)
     end

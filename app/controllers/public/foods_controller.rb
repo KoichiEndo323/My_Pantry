@@ -3,7 +3,7 @@ before_action :authenticate_end_user!
 before_action :set_food , only: %i[increase decrease]
 
   def index
-    @q = Food.ransack(params[:q])
+    @q = Food.where(end_user_id: current_end_user.id).ransack(params[:q])
     @foods = @q.result(distinct: true)
     @storages = Storage.all
   end
@@ -51,12 +51,18 @@ before_action :set_food , only: %i[increase decrease]
 
   def increase
     @food.increment!(:quantity, 1)
-    redirect_to request.referer, notice: '個数を増やしました'
+    @foods = current_end_user.foods
+    respond_to do |format|
+      format.js
+    end
   end
 
   def decrease
-    decrease_or_destroy(@food)
-    redirect_to request.referer, notice: '個数を減らしました'
+    @foods = current_end_user.foods
+    @food.decrement!(:quantity, 1)
+    respond_to do |format|
+      format.js
+    end
   end
 
 
