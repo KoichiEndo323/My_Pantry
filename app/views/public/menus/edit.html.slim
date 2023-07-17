@@ -1,0 +1,5 @@
+.container
+  h2.justify-contents-center
+    = "#{@menu.title}の編集"
+  = render "layouts/errors", resource: @menu
+  = render 'form', menu: @menu, url: menu_path(@menu), submit: '更新'

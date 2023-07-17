@@ -2,7 +2,6 @@ class Public::MenusController < ApplicationController
 
   def index
     @menus = Menu.all
-
   end
 
   def new
@@ -45,7 +44,7 @@ class Public::MenusController < ApplicationController
    private
 
   def menu_params
-    params.require(:menu).permit(:image, :title, :memo)
+    params.require(:menu).permit(:image, :title, :meal_time, :memo)
   end
 
 end

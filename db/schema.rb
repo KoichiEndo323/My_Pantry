@@ -100,10 +100,9 @@ ActiveRecord::Schema.define(version: 2023_06_18_005050) do
     t.datetime "end_date", null: false
     t.string "memo"
     t.integer "status", default: 0, null: false
+    t.integer "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "price"
-    t.integer "#<ActiveRecord::ConnectionAdapters::SQLite3::TableDefinition:0x00007fe12df0c290>"
   end
 
   create_table "likes", force: :cascade do |t|
@@ -116,7 +115,8 @@ ActiveRecord::Schema.define(version: 2023_06_18_005050) do
   create_table "menus", force: :cascade do |t|
     t.integer "end_user_id", null: false
     t.string "title", null: false
-    t.string "memo", null: false
+    t.string "meal_time", null: false
+    t.string "memo"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

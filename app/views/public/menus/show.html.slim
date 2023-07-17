@@ -1,0 +1,27 @@
+.container
+  h2 メニュー詳細
+  .row
+    .col-md-8
+      .card
+        .card-img-top.text-center
+          = image_tag @menu.get_menu_image(200,200), class: "card-img-top img-fluid", style: "object-fit: contain; height: 50vh; width: 100%;"
+        .card-body
+          h5.card-title
+            | メニュー名：
+            = @menu.title
+          p.card-text
+            | 時間帯：
+            = @menu.meal_time
+          p.card-text
+            | 作成日：
+            = @menu.created_at.strftime('%Y/%m/%d')
+          p.card-text
+            | メモ：
+            = @menu.memo
+      .card-footer.mb-10
+        = link_to edit_menu_path(@menu), class: "edit-link" do
+          i.fas.fa-edit
+            | 編集
+        = link_to menu_path(@menu), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "delete-link" do
+          i.fas.fa-trash-alt
+            | 削除

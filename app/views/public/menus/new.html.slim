@@ -1,0 +1,5 @@
+.container
+  h2.justify-contents-center
+    | 食事メニュー新規登録
+  = render "layouts/errors", resource: @menu
+  = render 'form', menu: @menu, url: menus_path, submit: '登録'

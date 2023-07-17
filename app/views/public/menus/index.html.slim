@@ -1,0 +1,28 @@
+.container
+  h2 食事メニュー一覧
+  .row.row-cols-1.row-cols-md-3.g-4
+    - if @menus.present?
+      - @menus.each do |menu|
+        .col
+          .card.h-100
+            .row.g-0
+              .col
+                .card-header.text-center
+                  strong.font-weight-bold
+                    = menu.title
+                = link_to menu_path(menu.id) do
+                  = image_tag menu.get_menu_image(100, 100), class: "card-img-top img-fluid", style: "object-fit: cover; height: 200px; width: 100%;"
+                .card-body
+                  p.card-text
+                    |  メモ :
+                    = menu.memo
+                  p.card-text
+                    |  作成日：
+                    = menu.created_at.strftime('%Y/%m/%d')
+                .card-footer
+                  p.card-text
+                    = link_to menu_path(menu.id), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "delete-link" do
+                      i.fas.fa-trash-alt.fa-lg
+    - else
+      p 食事メニューが登録されていません
+
