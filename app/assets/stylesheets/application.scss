@@ -46,6 +46,7 @@ header {
 .sidebar.sidebar-open {
   left: 0;
   width: 300px;
+  overflow-x: visible;
 }
 
 .sidebar:hover {
@@ -200,10 +201,6 @@ header {
 .new-img {
   width: 400px;
   object-fit: cover;
-}
-
-main {
-  flex-grow: 1;
 }
 
 /* メインビジュアル */
