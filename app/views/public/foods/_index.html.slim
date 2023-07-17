@@ -8,7 +8,7 @@
               strong.font-weight-bold
                 = food.name
             = link_to food_path(food.id) do
-              = image_tag food.get_food_image(100, 100), class: "card-img-top img-fluid", style: "object-fit: cover; height: 200px; width: 100%;"
+              = image_tag food.get_food_image(100, 100), class: "card-img-top img-fluid", style: "object-fit: contain; height: 200px; width: 100%;"
             .card-body
               p.card-text
                 | 個数 :

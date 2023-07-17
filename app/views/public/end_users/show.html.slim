@@ -5,7 +5,7 @@
       h3 プロフィール画像
       .card.shadow
         .card-img-top.text-center
-          = image_tag @end_user.get_profile_image(300, 300), class: "profile_image"
+          = image_tag @end_user.get_profile_image(300, 300), class: "card-img-top img-fluid", style: "object-fit: contain; height: 200px; width: 100%;"
         .card-body
           h5.card-title
             | ユーザー名:

@@ -11,8 +11,7 @@ html
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   body.d-flex.flex-column.min-vh-100
     = render "layouts/header"
-    .d-flex.flex-grow-1
+    main.d-flex.flex-grow-1
       = render "layouts/sidebar"
-      main
-        = yield
+      = yield
     = render "layouts/footer"
