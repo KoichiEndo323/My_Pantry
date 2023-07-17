@@ -1,1 +1,6 @@
 @import "rails_admin/src/rails_admin/styles/base";
+
+$fa-fw-width: math.div(20em, 16);
+font-size: math.div(4em, 3);
+line-height: math.div(3em, 4);
+margin-left: math.div($fa-li-width * 5, 4);
