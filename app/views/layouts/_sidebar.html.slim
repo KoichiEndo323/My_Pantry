@@ -31,7 +31,6 @@
           | 食事メニュー登録
       li class="#{'active' if action_name == 'index' && controller_name == 'menus'}"
         = link_to menus_path do
-          i.fas.fa-utensils
           | 食事メニュー一覧
       li
         = link_to destroy_end_user_session_path, method: :delete do
