@@ -1,9 +1,7 @@
-footer.pt-2.pb-2
+footer.fixed-bottom.pb-2
   .container
     - if current_end_user.try(:admin?)
       = link_to '管理者ログイン', rails_admin_path
     .row.justify-content-center
-      = link_to "https://twitter.com/MyPantry_PF" do
-        i.fa-brands.fa-twitter.fa-2x.mr-4
       p.mt-1.text-center
       | Copyright &copy; 2023 MyPantry All Rights Reserverd.

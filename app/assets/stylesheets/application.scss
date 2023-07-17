@@ -40,6 +40,8 @@ header {
 
   @media (max-width: 768px) {
     left: -300px;
+    position: absolute;
+    z-index: 2;
   }
 }
 
@@ -203,13 +205,26 @@ header {
   object-fit: cover;
 }
 
+main {
+  background-image: url('paprika21.png');
+
+  @media (max-width: 768px) {
+    position: relative;
+  }
+}
+
+main .container {
+   @media (max-width: 768px) {
+    position: absolute;
+  }
+}
+
 /* メインビジュアル */
 main .main-visual {
     width: 100%;
     height: 100%;
-    background-image: url('yasai_l.jpg');
+    background-image: url('paprika21.png');
     background-size: contain;
-    background-repeat: no-repeat;
     background-position: center top;
   }
 
@@ -218,9 +233,8 @@ main .main-visual {
   main .main-visual {
     width: 100%;
     height: 100%;
-    background-image: url('yasai_l.jpg');
+    background-image: url('paprika21.png');
     background-size: cover;
-    background-repeat: no-repeat;
     background-position: center top;
   }
 }
@@ -230,6 +244,7 @@ main .main-visual {
   height: 100%;
   text-align: center;
   padding-top: 250px;
+  background-color: rgba(245, 222, 179, 0.5);
 }
 
 .main-visual-content h1,

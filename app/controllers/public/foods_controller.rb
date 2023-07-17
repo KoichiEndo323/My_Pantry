@@ -59,7 +59,7 @@ before_action :set_food , only: %i[increase decrease]
 
   def decrease
     @foods = current_end_user.foods
-    @food.decrement!(:quantity, 1)
+    decrease_or_destroy(@food)
     respond_to do |format|
       format.js
     end
