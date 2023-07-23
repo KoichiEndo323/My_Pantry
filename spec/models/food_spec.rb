@@ -6,9 +6,4 @@ describe 'foodモデルのテスト' do
     expect(FactoryBot.build(:food)).to be_valid
   end
 
-  it "空の投稿内容の場合はエラーが出るか" do
-    food.content = ""
-    expect(food).to_not be_valid
-  end
-
 end

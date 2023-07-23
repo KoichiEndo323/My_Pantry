@@ -76,6 +76,7 @@ gem 'cancancan'
 gem 'ransack'
 
 gem 'dotenv-rails'
+gem "aws-sdk-s3", require: false
 group :production do
   gem 'mysql2'
 end
