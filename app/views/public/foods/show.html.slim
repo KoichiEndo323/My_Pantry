@@ -4,7 +4,8 @@
     .col-md-8
       .card
         .card-img-top.text-center
-          = image_tag @food.get_food_image(200,200), class: "card-img-top img-fluid", style: "object-fit: contain; height: 50vh; width: 100%;"
+          = image_tag @food_url
+          /, class: "card-img-top img-fluid", style: "object-fit: contain; height: 50vh; width: 100%;"
         .card-body
           h5.card-title
             | 食材名：
