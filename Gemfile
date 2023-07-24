@@ -74,9 +74,9 @@ gem 'whenever', require: false
 gem 'rails_admin'
 gem 'cancancan'
 gem 'ransack'
-
 gem 'dotenv-rails'
 gem "aws-sdk-s3", require: false
+gem 'meta-tags'
 group :production do
   gem 'mysql2'
 end
