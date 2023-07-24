@@ -36,6 +36,7 @@ class Public::ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+    @article_url = image_url(@article)
     @post_comment = PostComment.new
     @article_tags = @article.article_tags.pluck(:name).join(',')
   end

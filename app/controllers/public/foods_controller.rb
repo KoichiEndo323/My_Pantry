@@ -26,7 +26,7 @@ before_action :set_food , only: %i[increase decrease]
 
   def show
     @food = Food.find(params[:id])
-    @food_url = "https://mypantry-img-files-resize.s3-ap-northeast-1.amazonaws.com/#{@food.image.key}-thumbnail.#{@food.image.content_type.split('/').pop}"
+    @food_url = image_url(@food)
     storage = @food.storage.name
   end
 
@@ -84,5 +84,7 @@ before_action :set_food , only: %i[increase decrease]
       food.destroy
     end
   end
+
+
 
 end
