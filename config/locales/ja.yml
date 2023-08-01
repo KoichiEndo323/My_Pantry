@@ -6,14 +6,14 @@ ja:
         expiration_date_expired: "賞味期限切れ"
   activerecord:
     models:
-      end_user: "会員"
+      end_user: "ユーザー"
       food: "食材"
       article: "記事"
       article_tag: "記事タグ"
       like: "いいね"
       post_comment: "コメント"
       notification: "通知"
-      menu: "献立"
+      menu: "食事メニュー"
       storage: "保管場所"
       admin: "管理者"
     attributes:

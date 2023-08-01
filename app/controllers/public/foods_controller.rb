@@ -1,6 +1,7 @@
 class Public::FoodsController < ApplicationController
 before_action :authenticate_end_user!
-before_action :set_food , only: %i[increase decrease]
+before_action :set_food, only: %i[increase decrease]
+before_action :ensure_end_user, only: %i[show edit update destroy]
 
   def index
     @q = Food.where(end_user_id: current_end_user.id).ransack(params[:q])
@@ -75,6 +76,14 @@ before_action :set_food , only: %i[increase decrease]
 
   def set_food
     @food = current_end_user.foods.find(params[:id])
+  end
+
+  def ensure_end_user
+    @food = Food.find(params[:id])
+    unless @food.end_user == current_end_user
+      flash[:alert] = "他のユーザーの食材は閲覧・編集・削除できません。"
+      redirect_to root_path
+    end
   end
 
   def decrease_or_destroy(food)

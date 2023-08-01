@@ -7,7 +7,7 @@
         - current_end_user.notifications.each do |notification|
           .alert.alert-info
             = link_to food_path(notification.food.id) do
-              | #{notification.food.name} の賞味期限は #{l(notification.food.end_date, format: :short)} までです！
+              | #{notification.food.name} の賞味期限は #{notification.food.end_date.strftime('%Y/%m/%d')} までです！
             = link_to notification_path(notification.id), method: :delete do
               i.fas.fa-trash-alt
                 | 削除

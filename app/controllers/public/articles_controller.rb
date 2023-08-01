@@ -1,12 +1,14 @@
 class Public::ArticlesController < ApplicationController
+  before_action :authenticate_end_user!
+  before_action :ensure_end_user, only: [:edit, :update, :destroy]
 
   def index
     if params[:keyword].present?
       tag_name = ArticleTag.find(params[:keyword]).name
       flash.now[:notice] = "『#{tag_name}』タグの検索結果"
-      @articles = ArticleTag.find(params[:keyword]).articles.published.page(params[:page]).per(12)
+      @articles = ArticleTag.find(params[:keyword]).articles.published.order(created_at: :desc).page(params[:page]).per(12)
     else
-      @articles = Article.published.page(params[:page]).per(10)
+      @articles = Article.published.order(created_at: :desc).page(params[:page]).per(10)
     end
     @tag_list = ArticleTag.all
     @keyword = params[:keyword]
@@ -42,13 +44,11 @@ class Public::ArticlesController < ApplicationController
   end
 
   def edit
-    @article = Article.find(params[:id])
     @article_tags = @article.article_tags.pluck(:name).join(',')
     @tag_list = ArticleTag.all
   end
 
   def update
-    @article = Article.find(params[:id])
     article_tags = params[:article][:article_tag_ids].split(',')
     if @article.update(article_params)
        @article.update_tags(article_tags)
@@ -59,7 +59,6 @@ class Public::ArticlesController < ApplicationController
   end
 
   def destroy
-    @article = Article.find(params[:id])
     @article.destroy
     redirect_to articles_path, notice: '投稿記事が削除されました。'
   end
@@ -69,5 +68,13 @@ class Public::ArticlesController < ApplicationController
 
   def article_params
     params.require(:article).permit(:image, :title, :body, :is_published, article_tags_ids: [])
+  end
+
+  def ensure_end_user
+    @article = Article.find(params[:id])
+    unless @article.end_user == current_end_user
+      flash[:alert] = "他のユーザーの記事は編集・削除できません。"
+      redirect_to root_path
+    end
   end
 end

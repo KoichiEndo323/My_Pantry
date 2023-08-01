@@ -1,8 +1,8 @@
-.container.px-5.px-sm-0
+.container
   h2 記事詳細
   .row
-    .col-md-5
-      .card
+    .col-md-8
+      .card.mb-5
         .card-img-top.text-center
           = image_tag @article_url
           /.get_article_image(200,200), class: "card-img-top img-fluid", style: "object-fit: cover; height: 50vh; width: 100%;"
@@ -11,21 +11,7 @@
             = @article.title
           p.card-text
             = @article.body
-        .card-footer(style="display: block;")
-          .row.g-2
-            .col-auto
-              | 投稿者：
-              = link_to mypage_end_users_path(@article) do
-                = image_tag @article.end_user.get_profile_image(40, 40), class: "rounded-circle"
-                = @article.end_user.nickname
-            - @article.article_tags.each do |tag|
-              .col-auto
-                i.fas.fa-tags
-                = tag.name
-                = "(#{tag.articles.count})"
-            .col-auto
-              div class="likes-#{@article.id}"
-                = render "public/likes/btn", article: @article
+
         .card-footer
           - if @article.end_user == current_end_user
             = link_to edit_article_path(@article), class: "edit-link" do
@@ -34,7 +20,26 @@
             = link_to article_path(@article), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "delete-link" do
               i.fas.fa-trash-alt
                 | 削除
-    .col-md-5
+    .col-md-4
+      .card.mb-5
+        p.card-text
+          | 著者：
+          = link_to mypage_end_users_path(@article) do
+            = image_tag @article.end_user.get_profile_image(40, 40), class: "rounded-circle"
+            = @article.end_user.nickname
+        p.card-text
+          | タグ：
+          - @article.article_tags.each do |tag|
+            i.fas.fa-tags
+            = tag.name
+            = "(#{tag.articles.count})"
+        p.card-text
+          |  作成日：
+          = @article.created_at.strftime('%Y/%m/%d')
+        .card-footer
+          div class="likes-#{@article.id}"
+            = render "public/likes/btn", article: @article
+
       .form
         .post-comments-counter
           = render "public/post_comments/counter", article: @article

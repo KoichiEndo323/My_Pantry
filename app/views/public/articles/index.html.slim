@@ -4,7 +4,7 @@
   .row.row-cols-1.row-cols-md-3.g-4
     - @articles.each do |article|
       .col.mb-3
-        .card.shadow.h-100
+        .card.h-100
           = link_to article_path(article.id) do
             = image_tag article.get_article_image(100, 100), class: "card-img-top img-fluid", style: "object-fit: cover; height: 200px; width: 100%;"
           .card-body
@@ -21,5 +21,8 @@
               = render "public/post_comments/counter", article: article
               div class="likes-#{article.id}"
                 = render "public/likes/btn", article: article
+              .card-text.small
+                | 投稿日時 :
+                = article.created_at.strftime('%Y/%m/%d')
 
 = paginate @articles

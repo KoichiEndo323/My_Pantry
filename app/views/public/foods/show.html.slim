@@ -28,11 +28,11 @@
           p.card-text
             | 値段 :
             = @food.price
-      .card-footer.mb-10
-        = link_to edit_food_path(@food), class: "edit-link" do
-          i.fas.fa-edit
-            | 編集
-        = link_to food_path(@food), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "delete-link" do
-          i.fas.fa-trash-alt
-            | 削除
+        .card-footer.mb-10
+          = link_to edit_food_path(@food), class: "edit-link" do
+            i.fas.fa-edit
+              | 編集
+          = link_to food_path(@food), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "delete-link" do
+            i.fas.fa-trash-alt
+              | 削除
 

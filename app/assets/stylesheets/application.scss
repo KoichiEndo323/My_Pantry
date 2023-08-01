@@ -189,13 +189,10 @@ header {
   color: blue;
 }
 
-.alert-warning {
-  color: orange;
-}
-
 .alert-danger {
   color: red;
 }
+
 .actions {
   margin: 10px;
 }
@@ -253,6 +250,11 @@ main .main-visual {
 }
 
 /*cardのcss*/
+
+.card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
 .card-footer {
   display: flex;
   justify-content: space-between;
