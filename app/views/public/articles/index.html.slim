@@ -6,23 +6,23 @@
       .col.mb-3
         .card.h-100
           = link_to article_path(article.id) do
-            = image_tag article.get_article_image(100, 100), class: "card-img-top img-fluid", style: "object-fit: cover; height: 200px; width: 100%;"
-          .card-body
+            = image_tag article.get_article_image(100, 100), class: "card-img-top"
+          .card-body.p-2
             .card-title
               .h5 = article.title
             .card-text
               | 投稿者 :
               = image_tag article.end_user.get_profile_image(40, 40), class:"rounded-circle"
               = article.end_user.nickname
-            .card-footer(style="display: block;")
-              div
-                i.fas.fa-tags
-                = article.article_tags.pluck(:name).join(',')
-              = render "public/post_comments/counter", article: article
-              div class="likes-#{article.id}"
-                = render "public/likes/btn", article: article
-              .card-text.small
-                | 投稿日時 :
-                = article.created_at.strftime('%Y/%m/%d')
+          .card-footer(style="display: block;")
+            div
+              i.fas.fa-tags
+              = article.article_tags.pluck(:name).join(',')
+            = render "public/post_comments/counter", article: article
+            div class="likes-#{article.id}"
+              = render "public/likes/btn", article: article
+            .card-text.small
+              | 投稿日時 :
+              = article.created_at.strftime('%Y/%m/%d')
 
 = paginate @articles

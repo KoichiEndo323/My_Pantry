@@ -13,9 +13,9 @@ if (document.URL.match(/new|edit/)){
 
     if (document.getElementById('food_image') !== null) {
       document.getElementById('food_image').addEventListener('change', (e) =>{
-        const imageContent = document.querySelector('img');
-        if (imageContent){
-          imageContent.remove();
+        const imageElement = document.getElementById('new-image');
+        if (imageElement){
+          imageElement.innerHTML = "";
         }
         const file = e.target.files[0];
         const blob = window.URL.createObjectURL(file);
@@ -25,9 +25,9 @@ if (document.URL.match(/new|edit/)){
 
     if (document.getElementById('article_image') !== null) {
       document.getElementById('article_image').addEventListener('change', (e) =>{
-        const imageContent = document.querySelector('img');
-        if (imageContent){
-          imageContent.remove();
+        const imageElement = document.getElementById('new-image');
+        if (imageElement){
+          imageElement.innerHTML = "";
         }
         const file = e.target.files[0];
         const blob = window.URL.createObjectURL(file);
@@ -37,9 +37,9 @@ if (document.URL.match(/new|edit/)){
 
     if (document.getElementById('menu_image') !== null) {
       document.getElementById('menu_image').addEventListener('change', (e) =>{
-        const imageContent = document.querySelector('img');
-        if (imageContent){
-          imageContent.remove();
+        const imageElement = document.getElementById('new-image');
+        if (imageElement){
+          imageElement.innerHTML = "";
         }
         const file = e.target.files[0];
         const blob = window.URL.createObjectURL(file);

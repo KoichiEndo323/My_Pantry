@@ -1,16 +1,17 @@
-.card
-  table
-    tbody
-      - article.post_comments.each do |post_comment|
-        tr
-          td
-            = link_to mypage_end_users_path(post_comment.end_user) do
-              = image_tag post_comment.end_user.get_profile_image(50,50)
-              br
-              = post_comment.end_user.nickname
-          td = post_comment.comment
-          td = l(post_comment.created_at, format: :short)
-          td
+- article.post_comments.each do |post_comment|
+  .card.mb-1
+    .row.g-0
+      .col-md-3
+        = link_to mypage_end_users_path(post_comment.end_user) do
+          = image_tag post_comment.end_user.get_profile_image(50, 50)
+          br
+          = post_comment.end_user.nickname
+      .col-md-9
+        .card-body.p-1
+          p.card-text
+            = post_comment.comment
+          p.card-text
+            = post_comment.created_at.strftime('%y/%m/%d')
             - if post_comment.end_user == current_end_user
-              = link_to article_post_comment_path(article, post_comment), method: :delete, data: {confirm:'削除してもよろしいですか？'},remote: true do
+              = link_to article_post_comment_path(article, post_comment), method: :delete, data: { confirm: '削除してもよろしいですか？' }, remote: true do
                 i.fas.fa-trash-alt

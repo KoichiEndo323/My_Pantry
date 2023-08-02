@@ -1,6 +1,6 @@
 class Public::ArticlesController < ApplicationController
   before_action :authenticate_end_user!
-  before_action :ensure_end_user, only: [:edit, :update, :destroy]
+  before_action :ensure_end_user, only: %i[edit update destroy]
 
   def index
     if params[:keyword].present?

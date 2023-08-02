@@ -47,12 +47,12 @@ header {
 
 .sidebar.sidebar-open {
   left: 0;
-  width: 300px;
+  width: 340px;
   overflow-x: visible;
 }
 
 .sidebar:hover {
-  width: 300px;
+  width: 340px;
 }
 
 .sidebar ul {
@@ -203,16 +203,10 @@ header {
 }
 
 main {
-  background-image: url('paprika21.png');
-
+  background-color: #FFEBCD;
+  padding-bottom: 30px;
   @media (max-width: 768px) {
     position: relative;
-  }
-}
-
-main .container {
-   @media (max-width: 768px) {
-    position: absolute;
   }
 }
 
@@ -253,6 +247,13 @@ main .main-visual {
 
 .card {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  margin: 10px auto ;
+}
+
+.card-img-top {
+  object-fit: contain;
+  height: 100px;
+  width: 100%;
 }
 
 .card-footer {
@@ -284,6 +285,16 @@ main .main-visual {
   color: red;
 }
 
+.card a {
+  text-decoration: none;
+  color: #6c6b6b;
+}
+
+.card a:hover {
+  text-decoration: none;
+  color: #6c6b6b;
+}
+
 footer {
   background-color: #60a468;
   margin-top: auto;
@@ -303,12 +314,4 @@ footer {
   border-radius: 15px;
 }
 
-.card a {
-  text-decoration: none;
-  color: #6c6b6b;
-}
 
-.card a:hover {
-  text-decoration: none;
-  color: #6c6b6b;
-}

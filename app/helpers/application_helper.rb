@@ -11,11 +11,11 @@ module ApplicationHelper
   def days_until(date)
     days = (date.to_date - Date.current).to_i
     if days > 0
-      "賞味期限まであと#{days}日です。"
+      "賞味期限まで<br>あと#{days}日です".html_safe
     elsif days < 0
-      "賞味期限から#{days.abs}日経過してます。お早めにご使用して下さい"
+      "賞味期限から<br>#{days.abs}日経過してます<br>お早めにお召し上がり下さい".html_safe
     else
-      "賞味期限は今日までです。お早めにご使用して下さい"
+      "賞味期限は<br>今日までです<br>お早めにお召し上がり下さい".html_safe
     end
   end
 

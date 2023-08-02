@@ -1,6 +1,6 @@
 class Public::MenusController < ApplicationController
   before_action :authenticate_end_user!
-
+  before_action :ensure_end_user, only: %i[show edit update destroy]
 
   def index
     @menus = Menu.all
@@ -47,6 +47,14 @@ class Public::MenusController < ApplicationController
 
   def menu_params
     params.require(:menu).permit(:image, :title, :meal_time, :memo)
+  end
+
+  def ensure_end_user
+    @menu = Menu.find(params[:id])
+    unless @menu.end_user == current_end_user
+      flash[:alert] = "他のユーザーの食事メニューは編集・削除できません。"
+      redirect_to root_path
+    end
   end
 
 end

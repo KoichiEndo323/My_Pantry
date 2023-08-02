@@ -26,18 +26,15 @@ before_action :ensure_end_user, only: %i[show edit update destroy]
   end
 
   def show
-    @food = Food.find(params[:id])
     @food_url = image_url(@food)
     storage = @food.storage.name
   end
 
   def edit
-    @food = Food.find(params[:id])
     storage = @food.storage.name
   end
 
   def update
-    @food = Food.find(params[:id])
     if @food.update(food_params)
       redirect_to foods_path, notice: '食材情報が変更されました。'
     else
@@ -46,7 +43,6 @@ before_action :ensure_end_user, only: %i[show edit update destroy]
   end
 
   def destroy
-    @food = Food.find(params[:id])
     @food.destroy
     redirect_to foods_path, notice: '食材を削除しました。'
   end

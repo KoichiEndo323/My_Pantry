@@ -38,6 +38,9 @@ ja:
         name: "保存場所名"
       notification:
         is_checked: "チェック"
+      menu:
+        image: "食事メニュー画像"
+        title: "食事名"
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
