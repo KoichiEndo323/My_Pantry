@@ -12,6 +12,7 @@ class Public::ArticlesController < ApplicationController
     end
     @tag_list = ArticleTag.all
     @keyword = params[:keyword]
+    @article_urls = @articles.map { |article| image_url(article) }
   end
 
   def new

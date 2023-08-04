@@ -2,4 +2,4 @@
   h3 食材一覧
   = render "foods_seaches",q: @q
   .row.row-cols-2.row-cols-md-5.g-4#foods
-    = render "index", foods: @foods
+    = render "index", foods: @foods, food_urls: @food_urls

@@ -1,1 +1,2 @@
-$('#foods').html("<%= j(render 'public/foods/index', foods: @foods) %>");
+<% food_urls = @foods.map { |food| image_url(food) } %>
+$('#foods').html("<%= j(render 'public/foods/index', foods: @foods, food_urls: @food_urls) %>");

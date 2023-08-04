@@ -252,6 +252,7 @@ main .main-visual {
 
 .card-img-top {
   object-fit: contain;
+  height: 200px;
   width: 100%;
 }
 
@@ -291,7 +292,7 @@ main .main-visual {
 
 .card a:hover {
   text-decoration: none;
-  color: #6c6b6b;
+  color: #60a468;
 }
 
 footer {

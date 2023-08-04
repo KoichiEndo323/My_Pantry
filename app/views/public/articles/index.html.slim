@@ -1,12 +1,12 @@
 .container.px-5.px-sm-0
   h3 記事一覧
   = render "tags_searches"
-  .row.row-cols-1.row-cols-md-3.g-4
-    - @articles.each do |article|
+  .row.row-cols-1.row-cols-md-4.g-4
+    - @articles.each_with_index do |article, index|
       .col.mb-3
         .card.h-100
           = link_to article_path(article.id) do
-            = image_tag article.get_article_image(100, 100), class: "card-img-top"
+            = image_tag @article_urls[index], class: "card-img-top"
           .card-body.p-2
             .card-title
               .h5 = article.title

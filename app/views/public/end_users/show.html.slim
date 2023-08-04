@@ -9,43 +9,51 @@
               .h4
                 |プロフィール画像
             .card-img-top.text-center
-              = image_tag @end_user.get_profile_image(200, 200)
+              = image_tag @end_user.get_profile_image(100, 100)
             .card-body
               h5.card-text
                 | ユーザー名:
                 = @end_user.nickname
-            .card-footer
+            .card-footer.
               - unless current_end_user.email == 'guest@example.com'
-              = link_to "編集", edit_end_user_path(@end_user.id), class: "btn btn-success"
-              = link_to "退会", check_end_users_path, class: "btn btn-danger"
+                = link_to "編集", edit_end_user_path(@end_user.id), class: "btn btn-success",style: "color: white;"
+                = link_to "退会", check_end_users_path, class: "btn btn-danger",style: "color: white;"
     .col-md-4
-      h3 投稿した記事
-      .card.shadow
-        .card-img-top.text-center
-          i.fas.fa-address-book.fa-10x.mt-3
-        .card-body
-          p.card-text
-          - if @articles.present?
-            - @articles.each do |article|
-              = link_to article.title, article_path(article)
-              br
-          - else
-            | 投稿した記事がありません。
-          = paginate @articles
+      .card.h-100
+        .row.g-0
+          .col
+            .card-header.text-center.p-1
+              .h4
+                |作成した記事
+            .card-img-top.text-center
+              i.fas.fa-address-book.fa-5x.mt-3
+            .card-body
+              p.card-text
+              - if @articles.present?
+                - @articles.each do |article|
+                  = link_to article.title, article_path(article)
+                  br
+              - else
+                | 投稿した記事がありません。
+                = paginate @articles
     .col-md-4
-      h3 いいねした記事
-      .card.shadow
-        .card-img-top.text-center
-          i.fas.fa-hand-holding-heart.fa-10x.mt-3
-        .card-body
-          p.card-text
-          - if @favorites_articles.present?
-            - @favorites_articles.each do |favorite|
-              = link_to favorite.title, article_path(favorite)
-              br
-          - else
-            | いいねした記事がありません。
-          = paginate @favorites_articles
+      .card.h-100
+        .row.g-0
+          .col
+            .card-header.text-center.p-1
+              .h4
+                |いいねした記事
+            .card-img-top.text-center
+              i.fas.fa-hand-holding-heart.fa-5x.mt-3
+            .card-body
+              p.card-text
+                - if @favorites_articles.present?
+                  - @favorites_articles.each do |favorite|
+                    = link_to favorite.title, article_path(favorite)
+                    br
+                - else
+                  | いいねした記事がありません。
+                  = paginate @favorites_articles
 
 
 
