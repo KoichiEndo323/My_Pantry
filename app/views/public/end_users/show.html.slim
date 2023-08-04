@@ -26,8 +26,8 @@
               .h4
                 |作成した記事
             .card-img-top.text-center
-              i.fas.fa-address-book.fa-5x.mt-3
-            .card-body
+              = image_tag asset_path('7221_color.png'), alt: '', class: 'visual-image', size: '200x200'
+            .card-body.p-1
               p.card-text
               - if @articles.present?
                 - @articles.each do |article|
@@ -44,8 +44,8 @@
               .h4
                 |いいねした記事
             .card-img-top.text-center
-              i.fas.fa-hand-holding-heart.fa-5x.mt-3
-            .card-body
+               = image_tag asset_path('12118.png'), alt: '', class: 'visual-image', size: '150x200'
+            .card-body.p-1
               p.card-text
                 - if @favorites_articles.present?
                   - @favorites_articles.each do |favorite|

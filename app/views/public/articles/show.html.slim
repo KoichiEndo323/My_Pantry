@@ -34,8 +34,11 @@
             = tag.name
             = "(#{tag.articles.count})"
         p.card-text
-          |  作成日：
+          | 作成日：
           = @article.created_at.strftime('%Y/%m/%d')
+        p.card-text
+          | 閲覧数：
+          = @article.read_counts.count
         .card-footer
           div class="likes-#{@article.id}"
             = render "public/likes/btn", article: @article

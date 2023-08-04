@@ -42,6 +42,10 @@ class Public::ArticlesController < ApplicationController
     @article_url = image_url(@article)
     @post_comment = PostComment.new
     @article_tags = @article.article_tags.pluck(:name).join(',')
+    @article_detail = Article.find(params[:id])
+    unless ReadCount.where(created_at: Time.zone.now.all_day).find_by(end_user_id: current_end_user.id, article_id: @article_detail.id)
+      current_end_user.read_counts.create(article_id: @article_detail.id)
+    end
   end
 
   def edit

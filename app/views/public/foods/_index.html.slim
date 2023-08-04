@@ -8,7 +8,8 @@
               .h4
                 = food.name
             = link_to food_path(food.id) do
-              = image_tag food_urls[index], class: "card-img-top"
+              = image_tag food.get_food_image(100, 100) ,class: "card-img-top"
+              /= image_tag food_urls[index], class: "card-img-top"
             .card-body.p-2
               p.card-text
                 | 個数 :

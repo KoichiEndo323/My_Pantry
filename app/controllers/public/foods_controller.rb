@@ -7,7 +7,7 @@ before_action :ensure_end_user, only: %i[show edit update destroy]
     @q = Food.where(end_user_id: current_end_user.id).ransack(params[:q])
     @foods = @q.result(distinct: true).page(params[:page])
     @storages = Storage.all
-    @food_urls = @foods.map { |food| image_url(food) }
+    #@food_urls = @foods.map { |food| image_url(food) }
   end
 
   def new

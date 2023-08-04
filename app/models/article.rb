@@ -6,6 +6,7 @@ class Article < ApplicationRecord
   #articlesテーブルから中間テーブルを介してarticle_tagsテーブルへの関連付け
   has_many :article_tags, through: :article_tag_relations, dependent: :destroy
   belongs_to :end_user
+  has_many :read_counts, dependent: :destroy
 
   has_one_attached :image
 

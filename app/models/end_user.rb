@@ -9,7 +9,8 @@ class EndUser < ApplicationRecord
   has_many :notifications, dependent: :destroy
   has_many :post_comments, dependent: :destroy
   has_many :menus, dependent: :destroy
-
+  has_many :read_counts, dependent: :destroy
+  
   has_one_attached :profile_image
 
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

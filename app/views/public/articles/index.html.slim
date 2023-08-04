@@ -1,7 +1,7 @@
 .container.px-5.px-sm-0
   h3 記事一覧
   = render "tags_searches"
-  .row.row-cols-1.row-cols-md-4.g-4
+  .row.row-cols-1.row-cols-md-3.g-4
     - @articles.each_with_index do |article, index|
       .col.mb-3
         .card.h-100
@@ -24,5 +24,8 @@
             .card-text.small
               | 投稿日時 :
               = article.created_at.strftime('%Y/%m/%d')
+            .card-text.small
+              | 閲覧数 :
+              = article.read_counts.count
 
 = paginate @articles
