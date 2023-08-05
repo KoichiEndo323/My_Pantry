@@ -213,9 +213,6 @@ main {
 main .main-visual {
     width: 100%;
     height: 100%;
-    background-image: url('paprika21.png');
-    background-size: contain;
-    background-position: center top;
   }
 
 @media screen and (min-width: 425px)
@@ -223,7 +220,6 @@ main .main-visual {
   main .main-visual {
     width: 100%;
     height: 100%;
-    background-image: url('paprika21.png');
     background-size: cover;
     background-position: center top;
   }
@@ -232,14 +228,26 @@ main .main-visual {
 .main-visual-content{
   width: 100%;
   height: 100%;
+  padding-top: 400px;
   text-align: center;
-  padding-top: 250px;
-  background-color: rgba(245, 222, 179, 0.5);
+  background-image: url('top-image.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 .main-visual-content h1,
 .main-visual-content p {
   color: black;
+}
+
+.main-visual-text {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.visual-image {
+  @media (max-width: 768px) {
+    max-width: 85%;
+  }
 }
 
 /*cardのcss*/
@@ -292,6 +300,12 @@ main .main-visual {
 .card a:hover {
   text-decoration: none;
   color: #60a468;
+}
+
+.card.about {
+  @media (min-width: 768px) {
+    max-width: 60%;
+  }
 }
 
 footer {

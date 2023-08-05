@@ -83,6 +83,7 @@ gem 'ransack'
 gem 'dotenv-rails'
 gem "aws-sdk-s3", require: false
 gem 'meta-tags'
+gem 'gemoji'
 group :production do
   gem 'mysql2'
 end

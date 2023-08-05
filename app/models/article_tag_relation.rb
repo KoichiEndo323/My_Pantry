@@ -6,5 +6,4 @@ class ArticleTagRelation < ApplicationRecord
   validates :article_id, presence: true
   validates :article_tag_id, presence: true
 
-
 end

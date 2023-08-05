@@ -35,9 +35,9 @@ Rails.application.routes.draw do
     end
     resources :menus
 
-    resources :notifications, only: [:index, :destroy]
-    delete 'notifications/destroy_all' => 'notifications#destroy_all', as: 'destroy_all_notifications'
-
+    resources :notifications, only: [:index, :destroy] do
+      delete :destroy_all, on: :collection
+      end
     get "search_article_tag" => "article_seaches#search_tag"
     get "search_food" => "food_seaches#seach_food"
   end

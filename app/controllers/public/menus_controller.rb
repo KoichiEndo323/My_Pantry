@@ -3,7 +3,7 @@ class Public::MenusController < ApplicationController
   before_action :ensure_end_user, only: %i[show edit update destroy]
 
   def index
-    @menus = Menu.all
+    @menus = Menu.where(end_user_id: current_end_user.id).includes(:end_user).page(params[:page]).per(12)
   end
 
   def new
@@ -21,11 +21,9 @@ class Public::MenusController < ApplicationController
   end
 
   def show
-    @menu = Menu.find(params[:id])
   end
 
   def edit
-    @menu = Menu.find(params[:id])
   end
 
   def update

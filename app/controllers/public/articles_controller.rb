@@ -6,9 +6,9 @@ class Public::ArticlesController < ApplicationController
     if params[:keyword].present?
       tag_name = ArticleTag.find(params[:keyword]).name
       flash.now[:notice] = "『#{tag_name}』タグの検索結果"
-      @articles = ArticleTag.find(params[:keyword]).articles.published.order(created_at: :desc).page(params[:page]).per(12)
+      @articles = Article.includes(:article_tags).published.order(created_at: :desc).page(params[:page]).per(12)
     else
-      @articles = Article.published.order(created_at: :desc).page(params[:page]).per(10)
+      @articles = Article.includes(:article_tags).published.order(created_at: :desc).page(params[:page]).per(12)
     end
     @tag_list = ArticleTag.all
     @keyword = params[:keyword]
@@ -42,9 +42,8 @@ class Public::ArticlesController < ApplicationController
     @article_url = image_url(@article)
     @post_comment = PostComment.new
     @article_tags = @article.article_tags.pluck(:name).join(',')
-    @article_detail = Article.find(params[:id])
-    unless ReadCount.where(created_at: Time.zone.now.all_day).find_by(end_user_id: current_end_user.id, article_id: @article_detail.id)
-      current_end_user.read_counts.create(article_id: @article_detail.id)
+    unless ReadCount.where(created_at: Time.zone.now.all_day).find_by(end_user_id: current_end_user.id, article_id: @article.id)
+      current_end_user.read_counts.create(article_id: @article.id)
     end
   end
 

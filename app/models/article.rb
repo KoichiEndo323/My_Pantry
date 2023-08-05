@@ -14,7 +14,6 @@ class Article < ApplicationRecord
     validates :image
     validates :title
     validates :body
-    #validates :article_tag
     #validates :is_published boolean型でpresenceだと適正ではない
   end
 

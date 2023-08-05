@@ -39,10 +39,6 @@
           | ログアウト
   - else
     ul
-      li class="#{'active' if action_name == 'about' && controller_name == 'homes'}"
-        = link_to homes_about_path do
-          i.fas.fa-seedling
-          | 使い方
       li class="#{'active' if action_name == 'new' && controller_name == 'registrations'}"
         = link_to new_end_user_registration_path do
           i.fas.fa-user-plus

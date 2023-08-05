@@ -7,11 +7,11 @@
       /food_urls: @food_urls
 - else
   .main-visual
-    .container
+    .container-fluid
       .main-visual-content
-        h1 食材管理サイト MyPantry
-        p 家の中の食料品を登録して、賞味期限を管理する事が出来ます。
-        p また、レシピや保存方法などの記事を投稿・閲覧することが出来ます。
-        = link_to "使い方", homes_about_path, class: "btn btn-info"
-        div(style="margin-top: 15px; margin-bottom: 15px")
+        .main-visual-text
+          h1 食材管理サイト MyPantry
+          p 自宅の食料品を管理することを目的にしています。
+          p レシピや保存方法などの記事を投稿・閲覧することも出来ます。
           = link_to "ゲストログイン", end_users_guest_sign_in_path, method: :post, class: "btn btn-success"
+      = render "about"

@@ -1,9 +1,8 @@
 class Public::NotificationsController < ApplicationController
 
   def index
-    @notifications = Notification.where(is_checked: false)
+    @notifications = Notification.where(is_checked: false).includes(:end_user)
   end
-
 
   def destroy
     @notification = Notification.find(params[:id])

@@ -4,6 +4,8 @@
   .row
     .col-md-12
       - if @notifications.present?
+        = link_to destroy_all_notifications_path(@notification), method: :delete, class: "btn btn-info" do
+          | 通知を全て削除
         - current_end_user.notifications.each do |notification|
           .alert.alert-info
             = link_to food_path(notification.food.id) do
